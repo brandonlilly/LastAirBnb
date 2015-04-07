@@ -1,0 +1,21 @@
+<h1>Sign up</h1>
+
+<form action="<%= users_url %>" method="post">
+
+  <%= csrf_input %>
+
+  Name:<br>
+  <input type="text" name="user[name]" value="<%= @user.name %>">
+
+  <br><br>
+  Email:<br>
+  <input type="text" name="user[email]" value="<%= @user.email %>">
+
+  <br><br>
+  Password:<br>
+  <input type="password" name="user[password]" value="">
+
+  <br><br>
+  <input type="submit" value="Sign up">
+
+</form>

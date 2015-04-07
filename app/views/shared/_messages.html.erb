@@ -1,0 +1,9 @@
+<% [:errors, :warnings].each do |type| %>
+  <% if flash[type] %>
+  <ul>
+    <% flash[type].each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+<% end %>

@@ -13,6 +13,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
 
+group :production do
+  gem 'newrelic_rpm'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

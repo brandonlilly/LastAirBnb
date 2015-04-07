@@ -36,9 +36,8 @@ because its no more complex to implement than single session login. Create herok
 app for production.
 
 ### Phase 2: Listing Show Page (~1.5 days)
-Set up listings, amenities, and listing_amenties tables and associations. Seed
-a few listings, and amenities. Layout and style show page with listing information
-and photos.
+Set up listings table and associations. Seed a few listings. Layout and style
+show page with listing information and photos.
 
 ### Phase 3: Listing Photos and Reviews (~1 day)
 Set up photos and review tables and associations. Seed a few reviews and photos
@@ -59,6 +58,7 @@ with pins for each listing.
 Allow users to create new listings and upload photos in new listing page.
 
 ### Bonus Features (TBD)
+- [ ] Amenities for listings
 - [ ] Specify cover photo
 - [ ] Users can list rooms
 - [ ] Video background in welcome page
