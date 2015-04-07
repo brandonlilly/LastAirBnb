@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
 
+  namespace :api do
+    resources :listings
+  end
+
 end

@@ -8,12 +8,7 @@
 </head>
 <body>
 
-<% if logged_in? %>
-  Welcome <%= current_user.name %> <%= link_to 'Log Out', session_url(session[:token]), method: :delete %>
-<% else %>
-  <%= link_to 'Log in', new_session_url %>
-  <%= link_to 'Sign up', new_user_url %>
-<% end %>
+<%= render 'shared/navbar' %>
 
 <%= render 'shared/messages' %>
 
