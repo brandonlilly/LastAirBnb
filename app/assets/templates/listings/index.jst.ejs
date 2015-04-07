@@ -1,0 +1,9 @@
+<h2>Listings</h2>
+
+<ul>
+  <% listings.each(function (listing) { %>
+    <li>
+      <a href="<%= listing.href() %>"><%= listing.escape('title') %></a>
+    </li>
+  <% }); %>
+</ul>
