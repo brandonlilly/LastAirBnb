@@ -15,24 +15,26 @@ id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key
 
 ## listings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
-price       | integer   | not null
-capacity    | integer   | not null
-address     | integer   | not null
-description | text      | not null
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+owner_id       | integer   | not null, foreign key (references users)
+title          | string    | not null
+price          | integer   | not null
+capacity       | integer   | not null
+address        | integer   | not null
+description    | text      | not null
+cover_photo_id | integer   | foreign key (references photos)
 
-## bookings
+## reservations
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
 user_id        | integer   | not null, foreign key (references users)
 listing_id     | integer   | not null, foreign key (references listings)
-check_in_date  | datetime  | not null
-check_out_date | datetime  | not null
+start_date     | datetime  | not null
+end_date       | datetime  | not null
+status         | string    | not null, default 'PENDING'
 
 ## photos
 column name    | data type | details
@@ -48,7 +50,7 @@ id             | integer   | not null, primary key
 listing_id     | integer   | not null, foreign key (references listings)
 user_id        | string    | not null, foreign key (references users)
 body           | text      | not null
-stars          | integer   |
+rating         | integer   |
 
 ## amenities
 column name | data type | details
@@ -61,5 +63,5 @@ description | text      |
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
-listing_id     | integer   | not null, foreign key (references listings), unique w/ amenity_id
-amenity_id     | integer   | not null, foreign key (references amenities)
+listing_id     | integer   | not null, foreign key (references listings), unique combined with amenity_id
+amenity_id     | integer   | not null, foreign key (references amenities), unique combined with listing_id
