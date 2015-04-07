@@ -11,10 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407172827) do
+ActiveRecord::Schema.define(version: 20150407205622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenities", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "amenities", ["name"], name: "index_amenities_on_name", unique: true, using: :btree
+
+  create_table "listing_amenities", force: :cascade do |t|
+    t.integer  "listing_id", null: false
+    t.integer  "amenity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "listing_amenities", ["amenity_id"], name: "index_listing_amenities_on_amenity_id", using: :btree
+  add_index "listing_amenities", ["listing_id", "amenity_id"], name: "index_listing_amenities_on_listing_id_and_amenity_id", unique: true, using: :btree
+  add_index "listing_amenities", ["listing_id"], name: "index_listing_amenities_on_listing_id", using: :btree
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "owner_id",       null: false
+    t.string   "title",          null: false
+    t.integer  "price",          null: false
+    t.integer  "capacity",       null: false
+    t.string   "address",        null: false
+    t.text     "description",    null: false
+    t.integer  "cover_photo_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "listings", ["owner_id"], name: "index_listings_on_owner_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -24,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150407172827) do
   end
 
   add_index "sessions", ["token"], name: "index_sessions_on_token", unique: true, using: :btree
+  add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

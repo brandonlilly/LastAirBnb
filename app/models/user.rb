@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :sessions, dependent: :destroy
+  has_many :listings, foreign_key: :owner_id, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email);
@@ -29,7 +30,8 @@ class User < ActiveRecord::Base
   def self.find_by_session_token(token)
     # Look up best practice
     return nil unless token
-    Session.find_by_token(token).user
+    session = Session.find_by_token(token)
+    session ? session.user : nil
   end
 
   def is_password?(password)
