@@ -12,9 +12,9 @@ are able to:
 - [ ] Log in/out
 - [ ] View listings
 - [ ] Review listings
-- [ ] List places
 - [ ] Book listings
 - [ ] Search for listings
+- [ ] List places
 
 [avatarwiki]: http://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender
 
@@ -45,22 +45,22 @@ Set up photos and review tables and associations. Seed a few reviews and photos
 for listings. Add review index and form to listing show page. Add average rating
 for listings.
 
-### Phase 4: List Your Space (1.5 days)
-Allow users to create new listings and upload photos in new listing page.
-
-### Phase 5: Reservations (2 days)
+### Phase 4: Reservations (2 days)
 Add ReservationForm view to ListingShow page. Allow users to specify check in date
 and check out date and request a reservation. Create ReservationIndex for users
 to see their reservation statuses. Allow listing owners to approve or deny listings.
 
-### Phase 6: Listings Index and Search (2 days)
+### Phase 5: Listings Index and Search (3 days)
 Implement ListingsIndex with a Search function to allow users to narrow the
-listings by listing title and location.
+listings by listing title and location. Searching will have an associated map
+with pins for each listing.
+
+### Phase 6: List Your Space (1.5 days)
+Allow users to create new listings and upload photos in new listing page.
 
 ### Bonus Features (TBD)
 - [ ] Specify cover photo
 - [ ] Users can list rooms
-- [ ] Map with listing location pin
 - [ ] Video background in welcome page
 - [ ] Vanity urls with listing names
 - [ ] Vanity login urls

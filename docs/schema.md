@@ -13,6 +13,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key
+token       | string    | not null, unique
 
 ## listings
 column name    | data type | details
@@ -22,7 +23,7 @@ owner_id       | integer   | not null, foreign key (references users)
 title          | string    | not null
 price          | integer   | not null
 capacity       | integer   | not null
-address        | integer   | not null
+address        | string    | not null
 description    | text      | not null
 cover_photo_id | integer   | foreign key (references photos)
 
@@ -56,7 +57,7 @@ rating         | integer   |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+name        | string    | not null, unique
 description | text      |
 
 ## listing_amenities
