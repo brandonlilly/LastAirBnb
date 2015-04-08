@@ -20,6 +20,4 @@ class ListingAmenity < ActiveRecord::Base
     message: 'already listed that amenity'
   }
 
-
-
 end
