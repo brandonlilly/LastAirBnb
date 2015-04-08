@@ -8,8 +8,8 @@
 LastAirBnb is an [Avatar][avatarwiki] themed AirBnb clone built with Rails and Backbone. Users
 are able to:
 
-- [ ] Create accounts
-- [ ] Log in/out
+- [x] Create accounts
+- [x] Log in/out
 - [ ] View listings
 - [ ] Review listings
 - [ ] Book listings
@@ -24,8 +24,6 @@ are able to:
 
 <!-- [views]: ./docs/views.md -->
 [schema]: ./docs/schema.md
-
-TODO: Take pictures of and upload my view wireframe sketches.
 
 ## Implementation Timeline
 
