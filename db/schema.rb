@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407205622) do
+ActiveRecord::Schema.define(version: 20150408173927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20150407205622) do
   end
 
   add_index "amenities", ["name"], name: "index_amenities_on_name", unique: true, using: :btree
+
+  create_table "home_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "home_types", ["name"], name: "index_home_types_on_name", unique: true, using: :btree
 
   create_table "listing_amenities", force: :cascade do |t|
     t.integer  "listing_id", null: false
@@ -46,9 +54,25 @@ ActiveRecord::Schema.define(version: 20150407205622) do
     t.integer  "cover_photo_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "home_type_id",   null: false
+    t.integer  "bedrooms",       null: false
+    t.integer  "beds",           null: false
+    t.integer  "bathrooms",      null: false
   end
 
+  add_index "listings", ["home_type_id"], name: "index_listings_on_home_type_id", using: :btree
   add_index "listings", ["owner_id"], name: "index_listings_on_owner_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "listing_id", null: false
+    t.integer  "user_id",    null: false
+    t.text     "body",       null: false
+    t.integer  "rating",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["listing_id", "user_id"], name: "index_reviews_on_listing_id_and_user_id", unique: true, using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "user_id",    null: false

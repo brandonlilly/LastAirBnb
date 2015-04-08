@@ -14,8 +14,37 @@ ListingAmenity.destroy_all
 toph = User.create!(name: 'Toph Beifong', email: 'toph', password: 'password');
 brandon = User.create!(name: 'Brandon', email: 'brandon', password: 'brandon');
 
-hole = toph.listings.create!(title: 'Dirt Hole', price: 20, capacity: 1, address: 'dirt street', description: 'its a hole in the ground')
-mansion = toph.listings.create!(title: 'Beifong Mansion', price: 4000, capacity: 12, address: 'Gaoling, Southern Earth Kingdom', description: 'Home of the wealthiest Earth Kingdom family')
+house =       HomeType.create!(name: "House")
+earth_house = HomeType.create!(name: "Earth House")
+HomeType.create!(name: "Villa")
+HomeType.create!(name: "Castle")
+HomeType.create!(name: "Mansion")
+HomeType.create!(name: "Loft")
+HomeType.create!(name: "Cave")
+
+hole = toph.listings.create!(
+  title: 'Dirt Hole',
+  price: 20,
+  address: 'Dirt Street',
+  description: 'A hole in the ground',
+  capacity: 1,
+  beds: 0,
+  bedrooms: 0,
+  bathrooms: 0,
+  home_type_id: earth_house.id
+)
+
+mansion = toph.listings.create!(
+  title: 'Beifong Mansion',
+  price: 4000,
+  address: 'Gaoling, Southern Earth Kingdom',
+  description: 'Home of the wealthiest Earth Kingdom family',
+  capacity: 18,
+  beds: 18,
+  bedrooms: 12,
+  bathrooms: 6,
+  home_type_id: house.id
+)
 
 kitchen = Amenity.create!(name: 'Kitchen', description: 'Space where guests can cook their own meals')
 heating = Amenity.create!(name: 'Heating', description: 'Central heating or heating in the listing')

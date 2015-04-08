@@ -12,6 +12,10 @@
 #  cover_photo_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  home_type_id   :integer          not null
+#  bedrooms       :integer          not null
+#  beds           :integer          not null
+#  bathrooms      :integer          not null
 #
 
 require 'test_helper'
