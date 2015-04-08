@@ -22,6 +22,8 @@ LastAirBnb.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+    console.log('index');
+    
     var listings = new LastAirBnb.Collections.Listings();
     listings.fetch();
     var view = new LastAirBnb.Views.ListingsIndex({

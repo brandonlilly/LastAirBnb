@@ -10,8 +10,14 @@ User.destroy_all
 Listing.destroy_all
 Amenity.destroy_all
 ListingAmenity.destroy_all
+HomeType.destroy_all
+Review.destroy_all
 
-toph = User.create!(name: 'Toph Beifong', email: 'toph', password: 'password');
+toph =    User.create!(name: 'Toph Beifong', email: 'toph', password: 'password');
+asami =   User.create!(name: 'Asami Sato', email: 'asami', password: 'password');
+bolin =   User.create!(name: 'Bolin', email: 'bolin', password: 'password');
+iroh =    User.create!(name: 'Iroh', email: 'iroh', password: 'password');
+
 brandon = User.create!(name: 'Brandon', email: 'brandon', password: 'brandon');
 
 house =       HomeType.create!(name: "House")
@@ -49,6 +55,10 @@ mansion = toph.listings.create!(
 kitchen = Amenity.create!(name: 'Kitchen', description: 'Space where guests can cook their own meals')
 heating = Amenity.create!(name: 'Heating', description: 'Central heating or heating in the listing')
 essentials = Amenity.create!(name: 'Essentials', description: 'Towels, bed sheets, soap, and toilet paper')
+
+mansion.reviews.create!(body: 'Well maintained. I had a lovely time.', rating: 5, user: asami);
+mansion.reviews.create!(body: 'Really great!', rating: 5, user: bolin);
+mansion.reviews.create!(body: 'I loved the tea!', rating: 5, user: iroh);
 
 mansion.listing_amenities.create!(amenity: kitchen)
 mansion.listing_amenities.create!(amenity: heating)

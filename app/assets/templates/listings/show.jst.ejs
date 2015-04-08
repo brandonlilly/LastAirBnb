@@ -13,10 +13,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <h4>About This Listing</h4>
-        <p>
-          <%= listing.escape('description') %>
-        </p>
+        <div class="about">
+          <h4>About This Listing</h4>
+          <p>
+            <%= listing.escape('description') %>
+          </p>
+        </div>
 
         <!-- The Details -->
         <hr>
@@ -31,15 +33,21 @@
                   Price: <strong><%= listing.escape('price') %> yuan</strong>
                 </div>
                 <div>
-                  Accommodates: <strong><%= listing.escape('capacity') %></strong>
+                  Bedrooms: <strong><%= listing.get('bedrooms') %></strong>
+                </div>
+                <div>
+                  Beds: <strong><%= listing.escape('beds') %></strong>
+                </div>
+                <div>
+                  Bathrooms: <strong><%= listing.escape('bathrooms') %></strong>
                 </div>
               </div>
               <div class="col-md-6">
                 <div>
-                  Bed type: <strong>Real Bed</strong>
+                  Home type: <strong><%= listing.escape('home_type') %></strong>
                 </div>
                 <div>
-                  Beds: <strong><%= listing.get('capacity') %></strong>
+                  Accommodates: <strong><%= listing.escape('capacity') %></strong>
                 </div>
               </div>
             </div>
@@ -52,12 +60,24 @@
           <div class="col-md-3">
             <span class="muted">Amenities</span>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-9">
             <% if (listing.get('amenities')) { %>
               <% listing.get('amenities').forEach(function (amenity) { %>
                 <div><%= amenity.name %> - <%= amenity.description %></div>
               <% }); %>
             <% } %>
+          </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="row detail-section listing-photos">
+          <div class="col-md-6 row-full-height">
+            <div class="" style="background-color: cadetblue; height: 270px; width: 100%">
+            </div>
+          </div>
+          <div class="col-md-6 row-full-height">
+            <div class="" style="background-color: #3F7A8A; height: 270px; width: 100%">
+            </div>
           </div>
         </div>
 
@@ -67,7 +87,7 @@
 
   </div>
 </div>
-
+<hr>
 <div class="reviews">
 
 </div>

@@ -6,8 +6,7 @@ class Api::ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    # render :show
-    render json: @listing, include: :amenities
+    render json: @listing, include: [:amenities, :home_type, :reviews]
   end
 
 end

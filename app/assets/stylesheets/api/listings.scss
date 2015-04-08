@@ -9,9 +9,35 @@ div.cover-img {
   height: 300px;
 }
 
-.detail-section {
-  margin-bottom: 10px;
-  /* padding: 10px 0px; */
+body h4 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.details {
+
+  .about {
+    margin: 30px 0 80px 0;
+  }
+
+  .detail-section {
+    margin-bottom: 10px;
+    /* padding: 10px 0px; */
+  }
+
+  .listing-photos {
+    margin-top: 30px;
+    padding: 0 15px;
+    div {
+      padding: 1.5px;
+    }
+  }
+
+}
+
+.reviews {
+
 }
 
 div.container {
@@ -19,12 +45,4 @@ div.container {
 
 span.muted {
   color: #82888a;
-  /* font-weight: bold; */
-}
-
-div>h4 {
-  font-weight: bold;
-  font-size: 18px;
-
-
 }
