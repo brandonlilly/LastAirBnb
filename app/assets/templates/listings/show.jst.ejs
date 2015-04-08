@@ -1,5 +1,73 @@
-<h2>Listing: <%= listing.escape('title') %></h2>
+<div class="cover-img">
 
-<div class="description">
-  <%= listing.escape('description') %>
+</div>
+
+<div class="summary">
+  <div class="container">
+    <h1><%= listing.escape('title') %></h1>
+    <p><%= listing.escape('address') %></p>
+  </div>
+</div>
+<hr>
+<div class="details">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h4>About This Listing</h4>
+        <p>
+          <%= listing.escape('description') %>
+        </p>
+
+        <!-- The Details -->
+        <hr>
+        <div class="row detail-section">
+          <div class="col-md-3">
+            <span class="muted">The Details</span>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  Price: <strong><%= listing.escape('price') %> yuan</strong>
+                </div>
+                <div>
+                  Accommodates: <strong><%= listing.escape('capacity') %></strong>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  Bed type: <strong>Real Bed</strong>
+                </div>
+                <div>
+                  Beds: <strong><%= listing.get('capacity') %></strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amenities -->
+        <hr>
+        <div class="row detail-section">
+          <div class="col-md-3">
+            <span class="muted">Amenities</span>
+          </div>
+          <div class="col-md-6">
+            <% if (listing.get('amenities')) { %>
+              <% listing.get('amenities').forEach(function (amenity) { %>
+                <div><%= amenity.name %> - <%= amenity.description %></div>
+              <% }); %>
+            <% } %>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="reviews">
+
 </div>

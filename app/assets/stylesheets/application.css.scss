@@ -14,5 +14,48 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face {
+  font-family: 'Cylinder';
+  src:url('Cylinder.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Opal';
+  src:url('Opal.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Opal';
+  src:url('OpalBold.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: Opal, Cylinder, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #5e6264; /* #565a5c; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ text-rendering: optimizelegibility;
+ font-family: Opal, Cylinder, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+  border-color: #ddd;
+  margin: 15px 0;
+}
+
+nav.navbar {
+  margin-bottom: 0px;
+}

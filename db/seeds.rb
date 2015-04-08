@@ -15,11 +15,11 @@ toph = User.create!(name: 'Toph Beifong', email: 'toph', password: 'password');
 brandon = User.create!(name: 'Brandon', email: 'brandon', password: 'brandon');
 
 hole = toph.listings.create!(title: 'Dirt Hole', price: 20, capacity: 1, address: 'dirt street', description: 'its a hole in the ground')
-mansion = toph.listings.create!(title: 'Beifong Mansion', price: 4000, capacity: 12, address: 'earth village', description: 'Home of the richest earth kingdom family')
+mansion = toph.listings.create!(title: 'Beifong Mansion', price: 4000, capacity: 12, address: 'Gaoling, Southern Earth Kingdom', description: 'Home of the wealthiest Earth Kingdom family')
 
-kitchen = Amenity.create!(name: 'kitchen', description: 'space where guests can cook their own meals')
-heating = Amenity.create!(name: 'heating', description: 'central heating or heating in the listing')
-essentials = Amenity.create!(name: 'essentials', description: 'Towels, bed sheets, soap, and toilet paper')
+kitchen = Amenity.create!(name: 'Kitchen', description: 'Space where guests can cook their own meals')
+heating = Amenity.create!(name: 'Heating', description: 'Central heating or heating in the listing')
+essentials = Amenity.create!(name: 'Essentials', description: 'Towels, bed sheets, soap, and toilet paper')
 
 mansion.listing_amenities.create!(amenity: kitchen)
 mansion.listing_amenities.create!(amenity: heating)
