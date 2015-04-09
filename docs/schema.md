@@ -30,6 +30,8 @@ home_type_id   | integer   | not null, foreign key (references home_types)
 bedrooms       | integer   | not null
 beds           | integer   | not null
 bathrooms      | integer   | not null
+lat            | integer   | 
+lng            | integer   |
 
 ## home_types
 column name    | data type | details

@@ -10,7 +10,7 @@ are able to:
 
 - [x] Create accounts
 - [x] Log in/out
-- [ ] View listings
+- [x] View listings
 - [ ] Review listings
 - [ ] Book listings
 - [ ] Search for listings
@@ -56,7 +56,7 @@ with pins for each listing.
 Allow users to create new listings and upload photos in new listing page.
 
 ### Bonus Features (TBD)
-- [ ] Amenities for listings
+- [x] Amenities for listings
 - [ ] Specify cover photo
 - [ ] Users can list rooms
 - [ ] Video background in welcome page
@@ -68,6 +68,7 @@ Allow users to create new listings and upload photos in new listing page.
 - [ ] Custom logo
 - [ ] User profiles/dashboard
 - [ ] Reviewing listing owners
+- [ ] Fixed position navbar for certain heights
 
 
 [phase-one]: ./docs/phases/phase1.md

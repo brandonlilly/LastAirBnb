@@ -9,4 +9,21 @@ class Api::ListingsController < ApplicationController
     render json: @listing, include: [:amenities, :home_type, :reviews]
   end
 
+  def search
+    # @listings = search_listings(search_params)
+    @listings = Listing.all
+    render json: @listings
+  end
+
+  private
+
+  def search_params
+    # defaults and more later
+    params[:search_data]
+  end
+
+  def search_listings
+
+  end
+
 end

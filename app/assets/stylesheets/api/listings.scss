@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Show */
 div.cover-img {
   background: teal;
   width: 100%;
@@ -36,13 +37,28 @@ body h4 {
 
 }
 
-.reviews {
-
-}
-
-div.container {
-}
-
 span.muted {
   color: #82888a;
+}
+
+/* Search */
+
+#map-canvas {
+  height:100%;
+}
+
+.search-interface {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  width: 60%;
+  /* background: #5588bb; */
+}
+.search-map {
+  position: absolute;
+  top: 50px;
+  left: 60%;
+  bottom: 0;
+  width: 40%;
+  background: #336699;
 }
