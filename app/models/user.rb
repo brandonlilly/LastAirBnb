@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :sessions, dependent: :destroy
   has_many :listings, foreign_key: :owner_id, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email);
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_session_token(token)
-    # Look up best practice
+    # Investigate best practice
     return nil unless token
     session = Session.find_by_token(token)
     session ? session.user : nil

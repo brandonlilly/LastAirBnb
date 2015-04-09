@@ -4,8 +4,18 @@
 
 <div class="summary">
   <div class="container">
-    <h1><%= listing.escape('title') %></h1>
-    <p><%= listing.escape('address') %></p>
+    <div class="row">
+      <div class="col-lg-8">
+        <h1><%= listing.escape('title') %></h1>
+        <p><%= listing.escape('address') %></p>
+      </div>
+      <div class="col-lg-4">
+        <!-- Reservation Form -->
+        <div class="reservation">
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <hr>
@@ -83,6 +93,9 @@
 
 
       </div>
+
+
+
     </div>
 
   </div>

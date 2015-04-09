@@ -46,6 +46,7 @@ listing_id     | integer   | not null, foreign key (references listings)
 start_date     | datetime  | not null
 end_date       | datetime  | not null
 status         | string    | not null, default 'PENDING'
+guests         | integer   | not null
 
 ## photos
 column name    | data type | details

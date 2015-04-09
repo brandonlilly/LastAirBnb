@@ -21,7 +21,7 @@ class Reservation < ActiveRecord::Base
   validates :status, inclusion: { in: ['APPROVED', 'DENIED', 'PENDING'] }
 
   after_initialize :ensure_status
-  
+
   def approved?
     status == 'APPROVED'
   end
@@ -35,7 +35,5 @@ class Reservation < ActiveRecord::Base
   def ensure_status
     self.status ||= 'PENDING'
   end
-
-
-
+  
 end

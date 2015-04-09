@@ -1,0 +1,128 @@
+// Place all the styles related to the Api::Reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.reservation-form {
+  border: thin solid rgb(220, 224, 224);
+  width: 315px;
+  padding: 20px;
+
+  input, select {
+    width: 95px;
+    /* height: 50px; */
+    padding: 10px 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 13px;
+
+  }
+  input:focus, select:focus {
+    border: thin solid #aaa;
+    outline: none;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 70px;
+  }
+
+  label {
+    font-weight: normal;
+  }
+
+  button {
+    margin-top: 40px;
+    background-color: #ff5a5f;
+    border-radius: 3px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 30px;
+  }
+  button:hover {
+    background-color: rgb(255, 126, 130);
+  }
+
+}
+
+
+/* Datepicker */
+
+#ui-datepicker-div {
+	margin-top:-1px;
+	background: white;
+	border: thin solid #ccc;
+  padding: 0;
+
+
+  .ui-datepicker-title {
+    font-weight: bold;
+  }
+  table, tr, td {
+	  border-collapse: collapse;
+	  border-spacing: 0;
+    margin: 0;
+  }
+  .ui-datepicker-calendar {
+    margin-left: 0px;
+    border-bottom: thin solid #ddd;
+    margin-bottom: 45px;
+  }
+	thead th {
+    /* border-bottom: thin solid #ccc; */
+		font-weight: normal;
+	}
+	td {
+    border-right: thin solid #ddd;
+    border-top: thin solid #ddd;
+
+		height: 35px;
+		width: 35px;
+		padding: 0px;
+    font-size: 14px;
+	}
+  tr td:last-child {
+    border-right: thin solid #ccc;
+  }
+
+	td.ui-datepicker-current-day {
+		background-color: #ff5a5f;
+		a {
+			color: white;
+		}
+	}
+
+	.ui-datepicker-prev, .ui-datepicker-next {
+		color: #5e6264;
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 0 3px;
+	}
+  .ui-datepicker-prev:before {
+    content: '<';
+    display: block;
+    float: left;
+  }
+  .ui-datepicker-next:after {
+    content: '>';
+    display: block;
+    text-decoration: none;
+    float:right;
+  }
+}
+
+div.ui-datepicker td a {
+	text-align: center;
+	font-weight: bold;
+	color: #5e6264;
+}
+
+div.ui-datepicker td:not(.ui-datepicker-unselectable):hover {
+	background-color: #ff5a5f;
+	a {
+		color: white;
+	}
+}

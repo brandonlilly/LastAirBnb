@@ -1,0 +1,45 @@
+<form>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <label for="checkin">
+        Check In
+      </label>
+      <input
+        id="checkin"
+        type="text"
+        class="datepicker"
+        name="reservation[start_date]"
+        value=""
+        placeholder="mm/dd/yyyy"
+      >
+    </div>
+    <div class="col-xs-4">
+      <label for="checkout">
+        Check Out
+      </label>
+      <input
+        id="checkout"
+        type="text"
+        class="datepicker"
+        name="reservation[end_date]"
+        value=""
+        placeholder="mm/dd/yyyy"
+      >
+    </div>
+    <div class="col-xs-4">
+      <label for="guestcount">
+        Guests
+      </label>
+      <select name="reservation[guests]" id="guestcount">
+        <!-- TODO: switch to capacity -->
+        <% _.times(5, function (n) { %>
+          <option><%= n+1 %></option>
+        <% }); %>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-large btn-block">Request to Book</button>
+
+</form>

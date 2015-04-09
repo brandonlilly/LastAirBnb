@@ -8,6 +8,9 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
     this.reviewsIndex = new LastAirBnb.Views.ReviewsIndex({
       collection: this.model.reviews()
     });
+    this.reservationForm = new LastAirBnb.Views.ReservationForm({
+      model: new LastAirBnb.Models.Reservation()
+    });
   },
 
   render: function () {
@@ -15,7 +18,7 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
     this.$el.html(content);
 
     this.$('.reviews').append(this.reviewsIndex.render().$el);
-    
+    this.$('.reservation').append(this.reservationForm.render().$el)
     return this;
   },
 
