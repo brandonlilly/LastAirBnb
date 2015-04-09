@@ -9,7 +9,8 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
       collection: this.model.reviews()
     });
     this.reservationForm = new LastAirBnb.Views.ReservationForm({
-      model: new LastAirBnb.Models.Reservation()
+      model: new LastAirBnb.Models.Reservation(),
+      listing: this.model
     });
   },
 
@@ -19,11 +20,14 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
 
     this.$('.reviews').append(this.reviewsIndex.render().$el);
     this.$('.reservation').append(this.reservationForm.render().$el)
+    this.reservationForm.delegateEvents();
+    
     return this;
   },
 
   remove: function () {
     this.reviewsIndex.remove();
+    this.reservationForm.remove();
     Backbone.View.prototype.remove.call(this);
   }
 

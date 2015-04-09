@@ -3,9 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .reservation-form {
-  border: thin solid rgb(220, 224, 224);
   width: 315px;
+  position: relative;
+  top:-40px;
+
+  .reservation-header {
+    height: 40px;
+    width:100%;
+    -webkit-font-smoothing: antialiased;
+    background: rgba(60, 63, 64, 0.901961);
+    padding: 0 20px;
+    color: white;
+
+    .pricing {
+      float: left;
+      font-size: 24px;
+      line-height: 40px;
+    }
+    .pricing-unit {
+      float: right;
+      padding: 9px 0;
+    }
+  }
+}
+
+.reservation-panel {
+  border: thin solid rgb(220, 224, 224);
   padding: 20px;
+  position: absolute;
+  background: white;
+  top: 40;
+  /* width:100%; */
 
   input, select {
     width: 95px;
@@ -71,7 +99,7 @@
     margin-bottom: 45px;
   }
 	thead th {
-    /* border-bottom: thin solid #ccc; */
+    border-bottom: thin solid #ccc;
 		font-weight: normal;
 	}
 	td {
@@ -82,9 +110,27 @@
 		width: 35px;
 		padding: 0px;
     font-size: 14px;
+
+    a {
+    	text-align: center;
+    	font-weight: bold;
+    	color: #5e6264;
+    }
 	}
+  td.ui-datepicker-unselectable span {
+    text-align: center;
+    font-weight: bold;
+    color: #ddd;
+  }
+
+  td:not(.ui-datepicker-unselectable):hover {
+  	background-color: #ff5a5f;
+  	a {
+  		color: white;
+  	}
+  }
   tr td:last-child {
-    border-right: thin solid #ccc;
+    border-right: none;
   }
 
 	td.ui-datepicker-current-day {
@@ -94,6 +140,7 @@
 		}
 	}
 
+  /* < nav > */
 	.ui-datepicker-prev, .ui-datepicker-next {
 		color: #5e6264;
     font-size: 20px;
@@ -101,28 +148,15 @@
     cursor: pointer;
     padding: 0 3px;
 	}
-  .ui-datepicker-prev:before {
+  .ui-datepicker-prev:not(.ui-state-disabled):before {
     content: '<';
     display: block;
     float: left;
   }
-  .ui-datepicker-next:after {
+  .ui-datepicker-next:not(.ui-state-disabled):after {
     content: '>';
     display: block;
     text-decoration: none;
     float:right;
   }
-}
-
-div.ui-datepicker td a {
-	text-align: center;
-	font-weight: bold;
-	color: #5e6264;
-}
-
-div.ui-datepicker td:not(.ui-datepicker-unselectable):hover {
-	background-color: #ff5a5f;
-	a {
-		color: white;
-	}
 }

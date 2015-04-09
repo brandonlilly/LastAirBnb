@@ -11,4 +11,21 @@ class Api::ReservationsController < ApplicationController
       render json: @reservation
     end
   end
+
+  def create
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = current_user.id
+    if @reservation.save
+      render json: @reservation
+    else
+      render json: @reservation.errors.full_messages
+    end
+  end
+
+  private
+
+  def reservation_params
+    params.require(:reservation).permit(:listing_id, :start_date, :end_date, :guests)
+  end
+
 end
