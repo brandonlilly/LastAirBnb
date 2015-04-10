@@ -6,7 +6,7 @@ LastAirBnb.Views.ListingsSearch = Backbone.View.extend({
       collection: this.collection
     });
 
-    this.listingsIndex = new LastAirBnb.Views.ListingsIndex({
+    this.listingsSearchInterface = new LastAirBnb.Views.ListingsSearchInterface({
       collection: this.collection
     });
   },
@@ -14,7 +14,7 @@ LastAirBnb.Views.ListingsSearch = Backbone.View.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    this.$('.search-interface').html(this.listingsIndex.render().$el);
+    this.$('.search-interface').html(this.listingsSearchInterface.render().$el);
     this.$('.search-map').html(this.mapShow.$el);
     this.mapShow.initMap();
     return this;
@@ -23,7 +23,7 @@ LastAirBnb.Views.ListingsSearch = Backbone.View.extend({
   remove: function () {
     Backbone.View.prototype.remove.call(this);
     this.mapShow.remove();
-    this.listingsIndex.remove();
+    this.listingsSearchInterface.remove();
   }
 
 });

@@ -30,10 +30,10 @@ class Api::ListingsController < ApplicationController
 
   def filter_listings(filter_data)
     binds = {
-      :lat_min => filter_data['lat'][0],
-      :lat_max => filter_data['lat'][1],
-      :lng_min => filter_data['lng'][0],
-      :lng_max => filter_data['lng'][1]
+      lat_min: filter_data['lat'][0],
+      lat_max: filter_data['lat'][1],
+      lng_min: filter_data['lng'][0],
+      lng_max: filter_data['lng'][1]
     }
 
     if binds[:lng_min].to_f > binds[:lng_max].to_f

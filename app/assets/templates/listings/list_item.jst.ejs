@@ -1,0 +1,20 @@
+<%
+var imgurl = "/assets/Ember_Island_port.png"
+  if(listing.id % 2 === 0) {
+    imgurl = "/assets/southern-air-temple.jpg"
+  }
+ %>
+<div class="img-viewport">
+  <div class="img-wrapper">
+    <div class="img-inner">
+      <img src="<%= imgurl %>" alt="" />
+    </div>
+  </div>
+  <div class="price">
+    <%= listing.get('price') %> yuan
+  </div>
+</div>
+<div class="item-info-panel">
+  <h3><%= listing.escape('title') %></h3>
+  <span class="muted"><%= listing.escape('address') %></span>
+</div>

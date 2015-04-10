@@ -48,10 +48,12 @@ span.muted {
 }
 
 .search-interface {
-  position: absolute;
+  position: fixed;
   top: 50px;
   bottom: 0;
   width: 60%;
+  /* height:100%; */
+  overflow-y: scroll;
   /* background: #5588bb; */
 }
 .search-map {
@@ -61,4 +63,54 @@ span.muted {
   bottom: 0;
   width: 40%;
   background: #336699;
+}
+
+.listings-container {
+  padding: 0 20px;
+  display: block;
+}
+
+.listings-items {
+
+}
+
+.listing-item {
+
+  margin-bottom: 10px;
+
+  .img-viewport {
+    width:100%;
+    padding-bottom: 67%;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .img-inner {
+    right: -50%;
+    position: relative;
+    display: inline-block;
+    height: 100%;
+  }
+  img {
+    position: relative;
+    height: 100%;
+    width: auto;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    left: -50%;
+  }
+  .item-info-panel{
+    padding: 10px;
+    h3 {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
 }

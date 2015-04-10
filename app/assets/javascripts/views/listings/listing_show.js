@@ -21,7 +21,8 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
     this.$('.reviews').append(this.reviewsIndex.render().$el);
     this.$('.reservation').append(this.reservationForm.render().$el)
     this.reservationForm.delegateEvents();
-    
+    this.reviewsIndex.delegateEvents();
+
     return this;
   },
 
