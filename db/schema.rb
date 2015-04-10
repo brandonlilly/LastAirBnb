@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409183444) do
+ActiveRecord::Schema.define(version: 20150409234209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20150409183444) do
     t.integer  "bedrooms",       null: false
     t.integer  "beds",           null: false
     t.integer  "bathrooms",      null: false
+    t.float    "lat",            null: false
+    t.float    "lng",            null: false
   end
 
   add_index "listings", ["home_type_id"], name: "index_listings_on_home_type_id", using: :btree

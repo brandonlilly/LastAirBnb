@@ -17,11 +17,13 @@ toph =    User.create!(name: 'Toph Beifong', email: 'toph', password: 'password'
 asami =   User.create!(name: 'Asami Sato', email: 'asami', password: 'password');
 bolin =   User.create!(name: 'Bolin', email: 'bolin', password: 'password');
 iroh =    User.create!(name: 'Iroh', email: 'iroh', password: 'password');
+ozai =    User.create!(name: 'Ozai', email: 'ozai', password: 'password');
 
 brandon = User.create!(name: 'Brandon', email: 'brandon', password: 'brandon');
 
 house =       HomeType.create!(name: "House")
 earth_house = HomeType.create!(name: "Earth House")
+temple = HomeType.create!(name: "Temple")
 HomeType.create!(name: "Villa")
 HomeType.create!(name: "Castle")
 HomeType.create!(name: "Mansion")
@@ -37,7 +39,9 @@ hole = toph.listings.create!(
   beds: 0,
   bedrooms: 0,
   bathrooms: 0,
-  home_type_id: earth_house.id
+  home_type_id: earth_house.id,
+  lat: 37.6,
+  lng: -122.3
 )
 
 mansion = toph.listings.create!(
@@ -49,7 +53,37 @@ mansion = toph.listings.create!(
   beds: 18,
   bedrooms: 12,
   bathrooms: 6,
-  home_type_id: house.id
+  home_type_id: house.id,
+  lat: 37.8,
+  lng: -122.5
+)
+
+airtemple = iroh.listings.create!(
+  title: 'Southern Air Temple',
+  price: 74,
+  address: 'Patola Mountain Range',
+  description: 'Birthplace of Aang, one of the original four Air Nomad Temples. Destroyed in the Hundred Year War and recently restored by air acolytes.',
+  capacity: 4,
+  beds: 4,
+  bedrooms: 2,
+  bathrooms: 2,
+  home_type_id: temple.id,
+  lat: 37.8,
+  lng: -122.3
+)
+
+emberisland = ozai.listings.create!(
+  title: "Ozai's Beach House",
+  price: 74,
+  address: 'Ember Island, Fire Nation',
+  description: 'Great beaches.',
+  capacity: 5,
+  beds: 4,
+  bedrooms: 3,
+  bathrooms: 2,
+  home_type_id: house.id,
+  lat: 37.6,
+  lng: -122.5
 )
 
 kitchen = Amenity.create!(name: 'Kitchen', description: 'Space where guests can cook their own meals')
@@ -60,7 +94,13 @@ mansion.reviews.create!(body: 'Well maintained. I had a lovely time.', rating: 5
 mansion.reviews.create!(body: 'Really great!', rating: 5, user: bolin);
 mansion.reviews.create!(body: 'I loved the tea!', rating: 5, user: iroh);
 
+airtemple.reviews.create!(body: 'I had a very peaceful stay.', rating: 5, user: iroh);
+
 mansion.listing_amenities.create!(amenity: kitchen)
 mansion.listing_amenities.create!(amenity: heating)
 mansion.listing_amenities.create!(amenity: essentials)
 hole.listing_amenities.create!(amenity: heating)
+airtemple.listing_amenities.create!(amenity: heating)
+airtemple.listing_amenities.create!(amenity: essentials)
+emberisland.listing_amenities.create!(amenity: heating)
+emberisland.listing_amenities.create!(amenity: essentials)
