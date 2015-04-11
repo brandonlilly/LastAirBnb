@@ -66,9 +66,21 @@ span.muted {
 }
 
 .listings-container {
-  padding: 0 20px;
+  padding: 20px;
   display: block;
+
+  .search-panel {
+    #price-min {
+      float: left;
+    }
+    #price-max {
+      float: right;
+    }
+  }
 }
+
+
+
 
 .listings-items {
 
@@ -90,12 +102,14 @@ span.muted {
     bottom: 0;
     left: 0;
     right: 0;
+    height:100%;
   }
   .img-inner {
     right: -50%;
     position: relative;
     display: inline-block;
     height: 100%;
+    background: #336699;
   }
   img {
     position: relative;
@@ -106,6 +120,19 @@ span.muted {
     margin: 0 auto;
     left: -50%;
   }
+  .item-price {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    background: rgba(60, 63, 64, 0.851961);
+    font-size: 24px;
+    color: white;
+    padding: 5px;
+    .yuan {
+      font-size: 13px;
+    }
+  }
+
   .item-info-panel{
     padding: 10px;
     h3 {
@@ -113,4 +140,9 @@ span.muted {
       margin: 0;
     }
   }
+}
+
+/* slider */
+.ui-slider-range {
+  background-color: #ff5a5f;
 }
