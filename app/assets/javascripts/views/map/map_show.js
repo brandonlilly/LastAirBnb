@@ -15,47 +15,17 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     console.log('initializing map');
 
     var MAP_TYPE = "avatar";
-
-    // Normalizes the coords that tiles repeat across the x axis (horizontally)
-    // like the standard Google map tiles.
-    var getNormalizedCoord = function(coord, zoom) {
-      var y = coord.y;
-      var x = coord.x;
-
-      // tile range in one direction range is dependent on zoom level
-      // 0 = 1 tile, 1 = 2 tiles, 2 = 4 tiles, 3 = 8 tiles, etc
-      var tileRange = 1 << zoom;
-
-      // don't repeat across y-axis (vertically)
-      if (y < 0 || y >= tileRange) {
-        return null;
-      }
-
-      // repeat across x-axis
-      if (x < 0 || x >= tileRange) {
-        x = (x % tileRange + tileRange) % tileRange;
-      }
-
-      return {
-        x: x,
-        y: y
-      };
-    }
-
     var avatarTypeOptions = {
       getTileUrl: function(coord, zoom) {
-          var coord = getNormalizedCoord(coord, zoom);
-          if (!coord) {
-            return null;
-          }
+          var coord = this.getNormalizedCoord(coord, zoom);
+          if (!coord) { return null; }
           return "https://s3-us-west-1.amazonaws.com/lastairbnb/map/tile_" +
             zoom + "_" + coord.x + "-" + (coord.y) + ".png";
-      },
+      }.bind(this),
       tileSize: new google.maps.Size(256, 256),
       maxZoom: 5,
       minZoom: 0,
       radius: 1738000,
-      name: "Avatar"
     };
 
     var avatarMapType = new google.maps.ImageMapType(avatarTypeOptions);
@@ -69,13 +39,9 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
       },
     };
 
-
     this._map = new google.maps.Map(this.el, mapOptions);
     this._map.mapTypes.set(MAP_TYPE, avatarMapType);
     this._map.setMapTypeId(MAP_TYPE);
-
-
-
 
     this.collection.each(this.addMarker.bind(this));
     this.attachMapListeners();
@@ -97,6 +63,8 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     var filterData = {
       lat: [sw.lat(), ne.lat()],
       lng: [sw.lng(), ne.lng()],
+      priceRange: $('#price-range').slider('values'),
+      priceMax: $('#price-range').slider('option').max,
     };
 
     this.collection.fetch({
@@ -142,5 +110,17 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
   displayLatLng: function (event) {
     console.log('lat: ' + event.latLng.lat() + ', lng: ' + event.latLng.lng());
   },
+
+  getNormalizedCoord: function(coord, zoom) {
+    var y = coord.y, x = coord.x;
+    var tileRange = 1 << zoom;
+    if (y < 0 || y >= tileRange) {
+      return null;
+    }
+    if (x < 0 || x >= tileRange) {
+      x = (x % tileRange + tileRange) % tileRange;
+    }
+    return { x: x, y: y };
+  }
 
 });
