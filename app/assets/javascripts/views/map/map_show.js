@@ -44,17 +44,15 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
 
     var avatarTypeOptions = {
       getTileUrl: function(coord, zoom) {
-          var normalizedCoord = getNormalizedCoord(coord, zoom);
-          if (!normalizedCoord) {
+          var coord = getNormalizedCoord(coord, zoom);
+          if (!coord) {
             return null;
           }
-          var bound = Math.pow(2, zoom);
-          return "http://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw" +
-              "/" + zoom + "/" + normalizedCoord.x + "/" +
-              (bound - normalizedCoord.y - 1) + ".jpg";
+          return "https://s3-us-west-1.amazonaws.com/lastairbnb/map/tile_" +
+            zoom + "_" + coord.x + "-" + (coord.y) + ".png";
       },
       tileSize: new google.maps.Size(256, 256),
-      maxZoom: 9,
+      maxZoom: 5,
       minZoom: 0,
       radius: 1738000,
       name: "Avatar"
@@ -63,8 +61,8 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     var avatarMapType = new google.maps.ImageMapType(avatarTypeOptions);
 
     var mapOptions = {
-      center: { lat: 37.7833, lng: -122.4167},
-      zoom: 9,
+      center: { lat: 27.21555620902969, lng: 2.1807861328125},
+      zoom: 3,
       streetViewControl: false,
       mapTypeControlOptions: {
          mapTypeIds: [MAP_TYPE]
@@ -85,10 +83,13 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
 
   attachMapListeners: function () {
     google.maps.event.addListener(this._map, 'idle', this.search.bind(this));
+
+    // testing
+    google.maps.event.addListener(this._map, 'click', this.displayLatLng.bind(this));
   },
 
   search: function (event) {
-    console.log('searching');
+    // console.log('searching');
     var mapBounds = this._map.getBounds();
     var ne = mapBounds.getNorthEast();
     var sw  = mapBounds.getSouthWest();
@@ -136,6 +137,10 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
       content: marker.title
     });
     infoWindow.open(this._map, marker);
+  },
+
+  displayLatLng: function (event) {
+    console.log('lat: ' + event.latLng.lat() + ', lng: ' + event.latLng.lng());
   },
 
 });

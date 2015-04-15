@@ -16,6 +16,8 @@
 #  bedrooms       :integer          not null
 #  beds           :integer          not null
 #  bathrooms      :integer          not null
+#  lat            :float            not null
+#  lng            :float            not null
 #
 
 class Listing < ActiveRecord::Base
@@ -25,6 +27,8 @@ class Listing < ActiveRecord::Base
   has_many :reviews
   has_many :listing_amenities
   has_many :amenities, through: :listing_amenities
+  has_many :photos
+  belongs_to :cover_photo, class_name: :Photo
 
   validates :owner, :title, :price, :capacity, :address, :description,
     :home_type, :bedrooms, :beds, :bathrooms, presence: true

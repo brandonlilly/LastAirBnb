@@ -109,7 +109,6 @@ span.muted {
     position: relative;
     display: inline-block;
     height: 100%;
-    background: #336699;
   }
   img {
     position: relative;
@@ -143,6 +142,19 @@ span.muted {
 }
 
 /* slider */
-.ui-slider-range {
-  background-color: #ff5a5f;
+#price-range {
+  background-color: #eee;
+  height: 0.6em;
+  margin: 5px 0;
+
+  .ui-slider-range {
+    background-color: #ff5a5f;
+  }
+  .ui-slider-handle {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius:3px;
+    outline: none;
+    cursor: pointer;
+  }
 }

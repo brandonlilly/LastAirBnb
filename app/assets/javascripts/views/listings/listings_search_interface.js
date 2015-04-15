@@ -17,15 +17,11 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
       min: minPrice,
       max: maxPrice,
       slide: function (event, ui) {
-        // debugger
-        $("#price-min").html(ui.values[0] + ' yuan');
-        if (ui.values[1] < maxPrice) {
-          $("#price-max").html(ui.values[1] + ' yuan');
-        } else {
-          $("#price-max").html( maxPrice + '+ yuan');
-        }
-      }
+        this.updateMinMax(ui.values[0], ui.values[1], maxPrice);
+      }.bind(this)
     });
+    $priceRange.slider('values', 1, maxPrice);
+    this.updateMinMax(minPrice, maxPrice, maxPrice);
 
     // $priceRange.slider('option', 'slide').call($priceRange);
 
@@ -39,5 +35,14 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
 
     return this;
   },
+
+  updateMinMax: function (low, high, max) {
+    $("#price-min").html(low + ' yuan');
+    if (high < max) {
+      $("#price-max").html(high + ' yuan');
+    } else {
+      $("#price-max").html( max + '+ yuan');
+    }
+  }
 
 });

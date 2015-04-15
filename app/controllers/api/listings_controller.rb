@@ -7,12 +7,12 @@ class Api::ListingsController < ApplicationController
       @listings = Listing.all
     end
 
-    render json: @listings
+    render json: @listings, include: [:cover_photo]
   end
 
   def show
     @listing = Listing.find(params[:id])
-    render json: @listing, include: [:amenities, :home_type, :reviews]
+    render json: @listing, include: [:amenities, :home_type, :reviews, :photos, :cover_photo]
   end
 
   # def search

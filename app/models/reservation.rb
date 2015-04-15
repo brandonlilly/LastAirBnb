@@ -10,6 +10,7 @@
 #  status     :string           default("PENDING"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  guests     :integer          not null
 #
 
 class Reservation < ActiveRecord::Base

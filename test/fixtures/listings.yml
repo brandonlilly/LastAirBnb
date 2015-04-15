@@ -16,6 +16,8 @@
 #  bedrooms       :integer          not null
 #  beds           :integer          not null
 #  bathrooms      :integer          not null
+#  lat            :float            not null
+#  lng            :float            not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
