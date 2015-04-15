@@ -5,8 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <% if Rails.env.production? %>
+    <% api_key = "key=AIzaSyDIEUXXf9HuE2kkykOuxsDaO7XqU8oIVAw" %>
+  <% else %>
+    <% api_key = "" %>
+  <% end %>
+
   <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js"></script>
+    src="https://maps.googleapis.com/maps/api/js?<%= api_key %>&libraries=places">
+  </script>
 </head>
 <body>
 

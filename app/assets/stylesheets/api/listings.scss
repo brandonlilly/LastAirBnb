@@ -3,11 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* Show */
-div.cover-img {
-  background: teal;
-  width: 100%;
-  display: block;
-  height: 300px;
+div.cover-img-wrap {
+
+  div.cover-img {
+    background-color: teal;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: block;
+    height: 500px;
+  }
+}
+div.photo-list-item-wrap {
+  padding: 2px;
+
+  div.photo-list-item {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 66%;
+    background-color: #3F7A8A;
+  }
 }
 
 body h4 {
@@ -25,14 +43,12 @@ body h4 {
   .detail-section {
     margin-bottom: 10px;
     /* padding: 10px 0px; */
+
   }
 
   .listing-photos {
     margin-top: 30px;
     padding: 0 15px;
-    div {
-      padding: 1.5px;
-    }
   }
 
 }

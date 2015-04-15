@@ -1,0 +1,13 @@
+<div class="row">
+
+  <% photos.each(function (photo, index) { %>
+
+      <div class="col-md-6 row-full-height photo-list-item-wrap">
+        <div class="photo-list-item" style="background-image: url(<%= photo.escape('url') %>)">
+
+        </div>
+      </div>
+
+  <% }); %>
+  
+<% } %>

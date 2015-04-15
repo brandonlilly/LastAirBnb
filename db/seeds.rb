@@ -232,7 +232,7 @@ cozy_igloo.listing_amenities.create!(amenity: heating)
 cozy_igloo.listing_amenities.create!(amenity: essentials)
 
 bhanti_temple = pema.listings.create!(
-  title: 'Bhanti Vilage Temple',
+  title: 'Bhanti Village Temple',
   price: 460,
   address: 'Bhanti Island, Fire Nation',
   description: "Open to all travellers. Respect what is sacred and your stay will be a pleasant one.",

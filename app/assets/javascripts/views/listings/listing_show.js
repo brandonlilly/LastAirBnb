@@ -12,6 +12,10 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
       model: new LastAirBnb.Models.Reservation(),
       listing: this.model
     });
+    this.photosPalette = new LastAirBnb.Views.PhotosPalette({
+      collection: this.model.photos(),
+      model: this.model,
+    });
   },
 
   render: function () {
@@ -20,7 +24,9 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
 
     this.$('.reviews').append(this.reviewsIndex.render().$el);
     this.$('.reservation').append(this.reservationForm.render().$el)
+    this.$('.listing-photos').append(this.photosPalette.render().$el)
     this.reservationForm.delegateEvents();
+    this.photosPalette.delegateEvents();
     this.reviewsIndex.delegateEvents();
 
     return this;
@@ -29,6 +35,7 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
   remove: function () {
     this.reviewsIndex.remove();
     this.reservationForm.remove();
+    this.photosPalette.remove();
     Backbone.View.prototype.remove.call(this);
   }
 
