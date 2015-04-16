@@ -212,7 +212,7 @@ lovely_home.listing_amenities.create!(amenity: essentials)
 cozy_igloo = pema.listings.create!(
   title: 'Cozy Igloo',
   price: 245,
-  address: 'Southern Water Tribe',
+  address: 'Harbor City, Southern Water Tribe',
   description: "Nice and cozy home. Very traditional water tribe decor. You'll have no trouble staying warm here.",
   capacity: 3,
   beds: 3,

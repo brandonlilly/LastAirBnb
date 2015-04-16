@@ -41,6 +41,6 @@ LastAirBnb.Views.ReservationForm = Backbone.View.extend({
 
   _convertDate: function (date) {
     return date.substring(6) + "/" + date.substring(0,5);
-  }
+  },
 
 });

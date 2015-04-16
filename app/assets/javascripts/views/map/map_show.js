@@ -6,6 +6,7 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
 
   initialize: function () {
     this._markers = {};
+    this._labels = [];
 
     this.listenTo(this.collection, 'add', this.addMarker);
     this.listenTo(this.collection, 'remove', this.removeMarker);
@@ -17,10 +18,10 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     var MAP_TYPE = "avatar";
     var avatarTypeOptions = {
       getTileUrl: function(coord, zoom) {
-          var coord = this.getNormalizedCoord(coord, zoom);
-          if (!coord) { return null; }
-          return "https://s3-us-west-1.amazonaws.com/lastairbnb/map/tile_" +
-            zoom + "_" + coord.x + "-" + (coord.y) + ".png";
+        var coord = this.getNormalizedCoord(coord, zoom);
+        if (!coord) { return null; }
+        return "https://s3-us-west-1.amazonaws.com/lastairbnb/map/tile_" +
+          zoom + "_" + coord.x + "-" + coord.y + ".png";
       }.bind(this),
       tileSize: new google.maps.Size(256, 256),
       maxZoom: 5,
@@ -46,6 +47,8 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
 
     this.collection.each(this.addMarker.bind(this));
     this.attachMapListeners();
+
+    this.attachLabels();
   },
 
   attachMapListeners: function () {
@@ -109,6 +112,60 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
       content: marker.title
     });
     infoWindow.open(this._map, marker);
+  },
+
+  attachLabels: function () {
+    var locations  = LastAirBnb.Locations;
+
+    var styles = {
+      'city': {
+        fontSize: 16,
+        fontColor: '#eee',
+        fontFamily: 'Helvetica Neue',
+        minZoom: 3,
+        strokeWeight: 2,
+        strokeColor: '#000',
+        align: 'center',
+      },
+      'minorCity': {
+        fontSize: 14,
+        fontColor: '#eee',
+        fontFamily: 'Helvetica Neue',
+        minZoom: 4,
+        strokeWeight: 2,
+        strokeColor: '#000',
+        align: 'center',
+      },
+      'geography': {
+        fontSize: 16,
+        fontColor: '#eee',
+        fontFamily: 'Helvetica Neue',
+        minZoom: 2,
+        maxZoom: 4,
+        strokeWeight: 2,
+        strokeColor: '#000',
+        align: 'center',
+      },
+    }
+
+    this._labels = []
+    for(var name in locations) {
+      var location = locations[name];
+      var style = styles[location.styleType];
+      this._labels.push(new MapLabel({
+        text:         name,
+        position:     new google.maps.LatLng(location.lat, location.lng),
+        map:          this._map,
+        fontSize:     style.fontSize,
+        fontColor:    style.fontColor,
+        fontFamily:   style.fontFamily,
+        minZoom:      style.minZoom,
+        maxZoom:      style.maxZoom || 5,
+        strokeWeight: style.strokeWeight,
+        strokeColor:  style.strokeColor,
+        align:        style.align,
+      }));
+    };
   },
 
   displayLatLng: function (event) {
