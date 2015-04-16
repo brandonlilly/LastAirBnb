@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
 
   <% if Rails.env.production? %>
-    <% api_key = "key=AIzaSyDIEUXXf9HuE2kkykOuxsDaO7XqU8oIVAw" %>
+    <% api_key = "?key=AIzaSyDIEUXXf9HuE2kkykOuxsDaO7XqU8oIVAw" %>
   <% else %>
     <% api_key = "" %>
   <% end %>
 
   <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?<%= api_key %>&libraries=places">
+    src="https://maps.googleapis.com/maps/api/js<%= api_key %>">
   </script>
 </head>
 <body>

@@ -39,5 +39,4 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
     Backbone.View.prototype.remove.call(this);
   }
 
-
 });

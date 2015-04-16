@@ -14,12 +14,15 @@
 //= require jquery_ujs
 //= require jquery.serializejson.min
 //= require pluralize
-//= require jquery-ui.min
+//= require jquery-ui/datepicker
+//= require jquery-ui/slider
+//= require jquery-ui/autocomplete
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
 //= require last_air_bnb
 //= require_tree ../templates
+//= require_tree ./data
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views

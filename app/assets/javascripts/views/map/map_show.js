@@ -31,12 +31,13 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     var avatarMapType = new google.maps.ImageMapType(avatarTypeOptions);
 
     var mapOptions = {
-      center: { lat: 27.21555620902969, lng: 2.1807861328125},
-      zoom: 3,
-      streetViewControl: false,
-      mapTypeControlOptions: {
-         mapTypeIds: [MAP_TYPE]
+      center: {
+        lat: LastAirBnb.mapParams.lat || 27.21555620902969,
+        lng: LastAirBnb.mapParams.lng || 2.1807861328125
       },
+      zoom: LastAirBnb.mapParams.zoom || 3,
+      streetViewControl: false,
+      mapTypeControlOptions: { mapTypeIds: [MAP_TYPE] },
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
@@ -49,13 +50,16 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
 
   attachMapListeners: function () {
     google.maps.event.addListener(this._map, 'idle', this.search.bind(this));
-
-    // testing
     google.maps.event.addListener(this._map, 'click', this.displayLatLng.bind(this));
   },
 
   search: function (event) {
-    // console.log('searching');
+    LastAirBnb.setParams({
+      lat: this._map.getCenter().lat(),
+      lng: this._map.getCenter().lng(),
+      zoom: this._map.getZoom()
+    });
+
     var mapBounds = this._map.getBounds();
     var ne = mapBounds.getNorthEast();
     var sw  = mapBounds.getSouthWest();
@@ -121,6 +125,6 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
       x = (x % tileRange + tileRange) % tileRange;
     }
     return { x: x, y: y };
-  }
+  },
 
 });

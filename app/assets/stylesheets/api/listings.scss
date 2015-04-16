@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.summary h1 {
+  font-family: Herculanum;
+}
+
 /* Show */
 div.cover-img-wrap {
 
@@ -53,11 +57,34 @@ body h4 {
 
 }
 
-span.muted {
-  color: #82888a;
-}
 
 /* Search */
+.search-input-wrap {
+  position: relative;
+}
+.ui-autocomplete {
+  position: absolute;
+  width: 100%;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+  padding: 0;
+
+  .ui-menu-item {
+    list-style: none;
+    padding: 10px;
+    .active {
+      background: blue;
+    }
+  }
+  .ui-state-focus {
+    background: #f8f8fa;
+  }
+}
+
+
+
 
 #map-canvas {
   height:100%;
@@ -170,7 +197,7 @@ div.search-panel {
 #price-range {
   background-color: #eee;
   height: 0.6em;
-  margin: 5px 10px 5px 0;
+  margin: 5px 10px;
 
   .ui-slider-range {
     background-color: #ff5a5f;

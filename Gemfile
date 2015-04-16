@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'backbone-on-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'jquery-ui-rails'
 
 group :production do
   gem 'newrelic_rpm'

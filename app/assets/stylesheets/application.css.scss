@@ -39,6 +39,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Herculanum';
+  src: font-url('Herculanum.tff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: Opal, Cylinder, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #5e6264; /* #565a5c; */
@@ -60,4 +67,9 @@ hr {
 
 nav.navbar {
   margin-bottom: 0px;
+}
+
+
+span.muted {
+  color: #82888a;
 }
