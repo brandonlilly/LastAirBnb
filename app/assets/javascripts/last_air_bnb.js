@@ -5,6 +5,7 @@ window.LastAirBnb = {
   Routers: {},
   Locations: {},
   mapParams: {},
+  searchParams: {},
   initialize: function() {
     console.log('Backbone starting up');
     new LastAirBnb.Routers.Router({ $rootEl: $('#main') });
@@ -12,7 +13,7 @@ window.LastAirBnb = {
     this.searchForm = new LastAirBnb.Views.SearchForm();
     this.$search = $('#search');
     this.$search.html(this.searchForm.render().$el);
-    
+
     Backbone.history.start();
   },
 

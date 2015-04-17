@@ -15,6 +15,16 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
   initMap: function () {
     console.log('initializing map');
 
+    this._map = this.generateMap();
+    LastAirBnb.Map = this._map;
+
+    this.collection.each(this.addMarker.bind(this));
+    this.attachMapListeners();
+
+    this.attachLabels();
+  },
+
+  generateMap: function () {
     var MAP_TYPE = "avatar";
     var avatarTypeOptions = {
       getTileUrl: function(coord, zoom) {
@@ -41,14 +51,10 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
       mapTypeControlOptions: { mapTypeIds: [MAP_TYPE] },
     };
 
-    this._map = new google.maps.Map(this.el, mapOptions);
-    this._map.mapTypes.set(MAP_TYPE, avatarMapType);
-    this._map.setMapTypeId(MAP_TYPE);
-
-    this.collection.each(this.addMarker.bind(this));
-    this.attachMapListeners();
-
-    this.attachLabels();
+    var map = new google.maps.Map(this.el, mapOptions);
+    map.mapTypes.set(MAP_TYPE, avatarMapType);
+    map.setMapTypeId(MAP_TYPE);
+    return map;
   },
 
   attachMapListeners: function () {
@@ -120,31 +126,17 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     var styles = {
       'city': {
         fontSize: 16,
-        fontColor: '#eee',
-        fontFamily: 'Helvetica Neue',
         minZoom: 3,
-        strokeWeight: 2,
-        strokeColor: '#000',
-        align: 'center',
       },
-      'minorCity': {
+      'minor': {
         fontSize: 14,
-        fontColor: '#eee',
-        fontFamily: 'Helvetica Neue',
         minZoom: 4,
-        strokeWeight: 2,
-        strokeColor: '#000',
-        align: 'center',
+        fontColor: 'rgba(255, 255, 255, 0.9)',
       },
       'geography': {
-        fontSize: 16,
-        fontColor: '#eee',
-        fontFamily: 'Helvetica Neue',
-        minZoom: 2,
+        fontSize: 18,
+        minZoom: 3,
         maxZoom: 4,
-        strokeWeight: 2,
-        strokeColor: '#000',
-        align: 'center',
       },
     }
 
@@ -156,16 +148,21 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
         text:         name,
         position:     new google.maps.LatLng(location.lat, location.lng),
         map:          this._map,
-        fontSize:     style.fontSize,
-        fontColor:    style.fontColor,
-        fontFamily:   style.fontFamily,
-        minZoom:      style.minZoom,
-        maxZoom:      style.maxZoom || 5,
-        strokeWeight: style.strokeWeight,
-        strokeColor:  style.strokeColor,
-        align:        style.align,
+        fontSize:     style.fontSize     || 14,
+        fontColor:    style.fontColor    || '#eee',
+        fontFamily:   style.fontFamily   || 'Helvetica Neue',
+        minZoom:      style.minZoom      || 3,
+        maxZoom:      style.maxZoom      || 5,
+        strokeWeight: style.strokeWeight || 2,
+        strokeColor:  style.strokeColor  || '#000',
+        align:        style.align        || 'center',
       }));
     };
+  },
+
+  remove: function () {
+    LastAirBnb.Map = null;
+    Backbone.View.prototype.remove.call(this);
   },
 
   displayLatLng: function (event) {

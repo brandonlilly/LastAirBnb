@@ -4,7 +4,8 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
     this.minPrice = 10, this.maxPrice = 1000;
-    this.lowPrice = this.minPrice, this.highPrice = this.maxPrice;
+    this.lowPrice = LastAirBnb.searchParams.lowPrice || this.minPrice;
+    this.highPrice = LastAirBnb.searchParams.highPrice || this.maxPrice;
   },
 
   render: function () {
@@ -18,8 +19,7 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
       max: this.maxPrice,
       values: [this.lowPrice, this.highPrice],
       slide: function (event, ui) {
-        this.lowPrice = ui.values[0];
-        this.highPrice = ui.values[1];
+        this.setPrices(ui.values[0], ui.values[1])
         this.updateRangeIndicator();
       }.bind(this)
     });
@@ -31,6 +31,13 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
     }.bind(this));
 
     return this;
+  },
+
+  setPrices: function (lowPrice, highPrice) {
+    this.lowPrice = lowPrice;
+    this.highPrice = highPrice;
+    LastAirBnb.searchParams.lowPrice = lowPrice;
+    LastAirBnb.searchParams.highPrice = highPrice;
   },
 
   updateRangeIndicator: function () {

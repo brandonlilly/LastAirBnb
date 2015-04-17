@@ -1,0 +1,31 @@
+<ul class="search-inputs-list">
+  <li><div class="home-search-input-wrap">
+    <input type="text" class="search-input" placeholder="Where do you want to go?">
+  </div></li>
+
+  <li><input
+    id="checkin"
+    type="text"
+    class="datepicker"
+    name="reservation[start_date]"
+    value=""
+    placeholder="Check In"
+  ></li>
+
+  <li><input
+    id="checkout"
+    type="text"
+    class="datepicker"
+    name="reservation[end_date]"
+    value=""
+    placeholder="Check Out"
+  ></li>
+
+  <li><select name="reservation[guests]" id="guestcount" placeholder="Guests">
+    <% _.times(12, function (n) { %>
+      <option value="<%= n+1 %>"><%= n+1 %> <%= pluralize('Guest', n+1) %></option>
+    <% }); %>
+  </select></li>
+
+  <li><button class="btn btn-primary btn-large" >Search</button></li>
+</ul>

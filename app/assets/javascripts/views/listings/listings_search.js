@@ -13,7 +13,6 @@ LastAirBnb.Views.ListingsSearch = Backbone.View.extend({
   },
 
   render: function () {
-    'listingsSearch render'
     var content = this.template();
     this.$el.html(content);
     this.$('.search-interface').html(this.listingsSearchInterface.render().$el);

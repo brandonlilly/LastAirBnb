@@ -1,6 +1,6 @@
 LastAirBnb.Routers.Router = Backbone.Router.extend({
   routes: {
-    '': 'index',
+    '': 'welcome',
     'listings/:id': 'show',
     'listings': 'index',
     'search': 'search',
@@ -9,11 +9,11 @@ LastAirBnb.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     console.log('router initialize');
     this.$rootEl = options.$rootEl;
+    this.listings = new LastAirBnb.Collections.Listings();
   },
 
   show: function (id) {
-    var listing = new LastAirBnb.Models.Listing({ id: id });
-    listing.fetch();
+    var listing = this.listings.getOrFetch(id);
     var view = new LastAirBnb.Views.ListingShow({
       model: listing
     });
@@ -29,10 +29,14 @@ LastAirBnb.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
+  welcome: function () {
+    var view = new LastAirBnb.Views.WelcomeView();
+    this._swapView(view);
+  },
+
   search: function (city) {
-    var listings = new LastAirBnb.Collections.Listings();
     var view  = new LastAirBnb.Views.ListingsSearch({
-      collection: listings
+      collection: this.listings
     });
     this._swapView(view);
   },

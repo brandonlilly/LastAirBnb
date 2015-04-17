@@ -15,9 +15,8 @@ LastAirBnb.Views.ReservationForm = Backbone.View.extend({
   render: function () {
     var content = this.template({ reservation: this.model, listing: this.listing });
     this.$el.html(content);
-    this.$('.datepicker').datepicker({
-      minDate: 0
-    });
+    this.$('#checkin').datepicker({ minDate: 0 });
+    this.$('#checkout').datepicker({ minDate: 1 });
     return this;
   },
 
@@ -37,10 +36,6 @@ LastAirBnb.Views.ReservationForm = Backbone.View.extend({
         console.log('successful reservation request');
       }.bind(this)
     });
-  },
-
-  _convertDate: function (date) {
-    return date.substring(6) + "/" + date.substring(0,5);
   },
 
 });

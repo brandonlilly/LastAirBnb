@@ -11,7 +11,9 @@ LastAirBnb.Views.SearchForm = Backbone.View.extend({
     this.$el.html(content);
 
     var locations = [];
-    for(var k in LastAirBnb.Locations) locations.push(k);
+    for(var k in LastAirBnb.Locations) {
+      if (LastAirBnb.Locations[k].searchable) locations.push(k);
+    }
 
     this.$('input').autocomplete({
       source: locations,
@@ -25,9 +27,21 @@ LastAirBnb.Views.SearchForm = Backbone.View.extend({
 
   search: function (event) {
     event.preventDefault();
-    var location = this.$('input').val();
-    LastAirBnb.setParams(LastAirBnb.Locations[location]);
-    Backbone.history.navigate('#/search', { trigger: true });
+    var location = LastAirBnb.Locations[this.$('input').val()];
+    if (location) {
+      LastAirBnb.setParams(location);
+    }
+
+    if (LastAirBnb.Map) {
+      LastAirBnb.Map.setCenter({
+        lat: LastAirBnb.mapParams.lat,
+        lng: LastAirBnb.mapParams.lng
+      });
+      LastAirBnb.Map.setZoom(LastAirBnb.mapParams.zoom);
+    } else {
+      Backbone.history.navigate('#/search', { trigger: true });
+    }
+
   },
 
 });

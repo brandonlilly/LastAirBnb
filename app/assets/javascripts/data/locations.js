@@ -4,6 +4,7 @@ LastAirBnb.Locations = {
     lng: 4.0869140625,
     zoom: 5,
     styleType: 'city',
+    searchable: true,
   },
   'Ba Sing Se': {
     lat: 45.9511496866914, lng: 95.80078125,
@@ -19,41 +20,64 @@ LastAirBnb.Locations = {
     lat: -9.535748998133615, lng: 49.04296875,
     zoom: 5,
     styleType: 'city',
+    searchable: true,
   },
   'Ember Island': {
     lat: 12.425847783029146,
     lng: -46.67816162109375,
     zoom: 5,
-    styleType: 'minorCity',
+    styleType: 'minor',
   },
   'Bhanti Island': {
     lat: -12.983147716796578, lng: -53.0859375,
     zoom: 5,
-    styleType: 'minorCity',
+    styleType: 'minor',
+    searchable: true,
   },
   'Si Wong Desert': {
     lat: 13.239945499286312, lng: 82.44140625,
     zoom: 4,
     styleType: 'geography',
+    searchable: true,
   },
   'Air Temple Island': {
     lat: 38.09998264736481, lng: 4.04296875,
     zoom: 5,
-    styleType: 'minorCity',
+    styleType: 'minor',
+    searchable: true,
   },
   'Misty Palms Oasis': {
     lat: -5.878332109674314, lng: 71.54296875,
     zoom: 5,
-    styleType: 'minorCity',
+    styleType: 'minor',
+    searchable: true,
   },
-  'Foggy Swamp': {
-    lat: -3.425691524418062, lng: 53.0859375,
+  'Lake Laogai': {
+    lat: 42.16340342422401, lng: 102.48046875,
     zoom: 5,
-    styleType: 'minorCity',
+    styleType: 'minor',
+  },
+  'Whale Tail Island': {
+    lat: -27.76132987450523, lng: 17.5341796875,
+    zoom: 5,
+    styleType: 'minor',
   },
   'Harbor City': {
     lat: -60.63010176626669, lng: -5.80078125,
     zoom: 5,
     styleType: 'city',
+    searchable: true,
   },
+  'Gaoling': {
+    lat: -23.079731762449878, lng: 58.16359375,
+    zoom: 5,
+    styleType: 'minor',
+  },
+  'Foggy Swamp': {
+    lat: -2.1967272417616583, lng: 52.998046875,
+    zoom: 5,
+    styleType: 'minor',
+    searchable: true,
+  },
+
 }

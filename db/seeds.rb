@@ -260,8 +260,8 @@ air_temple = tenzin.listings.create!(
   bedrooms: 2,
   bathrooms: 2,
   home_type_id: temple.id,
-  lat: -47.42808726171425,
-  lng: 8.47320556640625
+  lat: -42.553080288955805,
+  lng: -2.8125
 )
 # need to convert to jpg
 cover = air_temple.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/southern-air-temple/outside-view.png')
@@ -289,18 +289,3 @@ ember_island.update!(cover_photo_id: cover.id)
 ember_island.listing_amenities.create!(amenity: heating)
 ember_island.listing_amenities.create!(amenity: essentials)
 ember_island.listing_amenities.create!(amenity: kitchen)
-
-# mansion = toph.listings.create!(
-#   title: 'Beifong Mansion',
-#   price: 4000,
-#   address: 'Gaoling, Southern Earth Kingdom',
-#   description: 'Home of the wealthiest Earth Kingdom family',
-#   capacity: 18,
-#   beds: 18,
-#   bedrooms: 12,
-#   bathrooms: 6,
-#   home_type_id: house.id,
-#   lat: 37.8,
-#   lng: -122.5
-# )
-#

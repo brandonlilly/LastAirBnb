@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .summary h1 {
-  font-family: Herculanum;
+  font-family: Herculanum, Opal, Cylinder;
 }
 
 /* Show */
@@ -79,7 +79,7 @@ body h4 {
     }
   }
   .ui-state-focus {
-    background: #f8f8fa;
+    background: #e8e8ea;
   }
 }
 
@@ -109,6 +109,10 @@ body h4 {
   display: block;
 
   .search-panel {
+    #price-min, #price-max {
+      height: 14px;
+      padding: 0 10px;
+    }
     #price-min {
       float: left;
     }
