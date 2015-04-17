@@ -3,13 +3,14 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
-    this.minPrice = 10, this.maxPrice = 1000;
+    this.minPrice = 10, this.maxPrice = 4000;
     this.lowPrice = LastAirBnb.searchParams.lowPrice || this.minPrice;
     this.highPrice = LastAirBnb.searchParams.highPrice || this.maxPrice;
+    this._listItems = [];
   },
 
   render: function () {
-    var content = this.template({ listings: this.collection });
+    var content = this.template();
     this.$el.html(content);
 
     var $priceRange = this.$("#price-range");
@@ -21,16 +22,43 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
       slide: function (event, ui) {
         this.setPrices(ui.values[0], ui.values[1])
         this.updateRangeIndicator();
+      }.bind(this),
+      stop: function (event, ui) {
+        this.renderListItems();
       }.bind(this)
     });
-    this.updateRangeIndicator();
 
-    this.collection.forEach(function (listing) {
-      var view = new LastAirBnb.Views.ListingListItem({ model: listing });
-      this.$('.listings-items').append(view.render().$el);
-    }.bind(this));
+    this.updateRangeIndicator();
+    this.renderListItems();
 
     return this;
+  },
+
+  filterListings: function (listings) {
+    return new LastAirBnb.Collections.Listings(
+      listings.filter(function (listing) {
+        if (listing.get('price') >= this.highPrice && this.highPrice >= this.maxPrice) {
+          return true;
+        }
+        return listing.get('price') >= this.lowPrice && listing.get('price') <= this.highPrice;
+      }.bind(this))
+    );
+  },
+
+  removeListItems: function () {
+    this._listItems.forEach(function (view) {
+      view.remove();
+    });
+    this._listItems = [];
+  },
+
+  renderListItems: function (listings) {
+    this.removeListItems();
+    this.filterListings(this.collection).forEach(function (listing) {
+      var view = new LastAirBnb.Views.ListingListItem({ model: listing });
+      this._listItems.push(view);
+      this.$('.listings-items').append(view.render().$el);
+    }.bind(this));
   },
 
   setPrices: function (lowPrice, highPrice) {
@@ -47,6 +75,11 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
     } else {
       $("#price-max").html(this.maxPrice + '+ yuan');
     }
+  },
+
+  remove: function () {
+    this.removeListItems();
+    Backbone.View.prototype.remove.call(this);
   }
 
 });

@@ -6,7 +6,8 @@ LastAirBnb.Views.WelcomeView = Backbone.View.extend({
 
   initialize: function () {
     this.homeSearch = new LastAirBnb.Views.HomeSearchView();
-    $('.navbar').hide();
+    $('.navbar').addClass('welcome-style');
+
   },
 
   render: function () {
@@ -18,7 +19,7 @@ LastAirBnb.Views.WelcomeView = Backbone.View.extend({
 
   remove: function () {
     this.homeSearch.remove();
-    $('.navbar').show();
+    $('.navbar').removeClass('welcome-style');
     Backbone.View.prototype.remove.call(this);
   },
 

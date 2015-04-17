@@ -52,7 +52,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  padding-bottom: 200px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,7 +65,33 @@ hr {
 }
 
 nav.navbar {
+  z-index: 1000;
   margin-bottom: 0px;
+  padding: 0 20px;
+  background: #fff;
+  border-bottom: 1px solid #dce0e0;
+
+  /* .navbar-brand, .navbar-brand:hover {
+    color: #ff5a5f;
+  } */
+
+  #search input {
+    width: 240px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+
+    &:focus {
+      border: thin solid #aaa;
+      outline: none;
+    }
+  }
+  .navbar-collapse.collapse.in{
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #dce0e0;
+    background: white;
+  }
 }
 
 

@@ -2,11 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@media (min-width: 1200px) {
+
+  .reservation-form {
+    top: -40px;
+    margin: 0;
+
+    .reservation-panel {
+      position: absolute;
+      top: 40px;
+    }
+  }
+}
 .reservation-form {
   width: 315px;
   position: relative;
-  top:-40px;
-  
+  margin: 0 auto;
+
   .reservation-header {
     height: 40px;
     width:100%;
@@ -29,54 +42,56 @@
       padding: 9px 0;
     }
   }
+
+  .reservation-panel {
+    border: thin solid rgb(220, 224, 224);
+    padding: 20px;
+    background: white;
+
+
+
+    /* width:100%; */
+
+    input, select {
+      width: 95px;
+      /* height: 50px; */
+      padding: 10px 8px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-size: 13px;
+    }
+    input:focus, select:focus {
+      border: thin solid #aaa;
+      outline: none;
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      width: 70px;
+    }
+
+    label {
+      font-weight: normal;
+    }
+
+    button {
+      margin-top: 40px;
+      background-color: #ff5a5f;
+      border-radius: 3px;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 30px;
+    }
+    button:hover {
+      background-color: rgb(255, 126, 130);
+    }
+
+  }
 }
 
-.reservation-panel {
-  border: thin solid rgb(220, 224, 224);
-  padding: 20px;
-  position: absolute;
-  background: white;
-  top: 40;
-  /* width:100%; */
-
-  input, select {
-    width: 95px;
-    /* height: 50px; */
-    padding: 10px 8px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    font-size: 13px;
-  }
-  input:focus, select:focus {
-    border: thin solid #aaa;
-    outline: none;
-  }
-  select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    width: 70px;
-  }
-
-  label {
-    font-weight: normal;
-  }
-
-  button {
-    margin-top: 40px;
-    background-color: #ff5a5f;
-    border-radius: 3px;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 30px;
-  }
-  button:hover {
-    background-color: rgb(255, 126, 130);
-  }
-
-}
 
 
 /* Datepicker */
