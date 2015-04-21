@@ -1,17 +1,19 @@
-<h1>Sign in</h1>
+<div class="user-form">
+  <h1>Sign in</h1>
 
-<form action="<%= sessions_url %>" method="post">
+  <form action="<%= sessions_url %>" method="post">
 
-  <%= csrf_input %>
+    <%= csrf_input %>
 
-  Email:<br>
-  <input type="text" name="user[email]" value="<%= @user.email %>">
+    Email:<br>
+    <input type="text" name="user[email]" value="<%= @user.email %>">
 
-  <br><br>
-  Password:<br>
-  <input type="password" name="user[password]" value="">
+    <br><br>
+    Password:<br>
+    <input type="password" name="user[password]" value="">
 
-  <br><br>
-  <input type="submit" value="Sign in">
+    <br><br>
+    <input type="submit" value="Sign in">
 
-</form>
+  </form>
+</div>

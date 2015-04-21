@@ -32,8 +32,11 @@ LastAirBnb.Views.HomeSearchView = Backbone.View.extend({
     if (location) {
       LastAirBnb.setParams(location);
     }
-    LastAirBnb.searchParams.checkIn = this.$('#checkin').val();
-    LastAirBnb.searchParams.checkOut = this.$('#checkout').val();
+    debugger
+    LastAirBnb.searchParams.guests =   this.$('#guestcount').val();
+    LastAirBnb.searchParams.checkin =  this.$('#checkin').val();
+    LastAirBnb.searchParams.checkout = this.$('#checkout').val();
+
     Backbone.history.navigate('#/search', { trigger: true });
   },
 

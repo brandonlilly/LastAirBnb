@@ -2,7 +2,6 @@ LastAirBnb.Views.ListingsSearch = Backbone.View.extend({
   template: JST['listings/search'],
 
   initialize: function () {
-    console.log('listingsSearch initialize');
     this.mapShow = new LastAirBnb.Views.MapShow({
       collection: this.collection
     });

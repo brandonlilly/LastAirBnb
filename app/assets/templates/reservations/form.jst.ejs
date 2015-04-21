@@ -19,7 +19,7 @@
         type="text"
         class="datepicker"
         name="reservation[start_date]"
-        value=""
+        value="<%= checkin %>"
         placeholder="mm/dd/yyyy"
       >
     </div>
@@ -32,7 +32,7 @@
         type="text"
         class="datepicker"
         name="reservation[end_date]"
-        value=""
+        value="<%= checkout %>"
         placeholder="mm/dd/yyyy"
       >
     </div>
@@ -40,9 +40,14 @@
       <label for="guestcount">
         Guests
       </label>
-      <select name="reservation[guests]" id="guestcount">
-        <% _.times(listing.get('capacity') || 0, function (n) { %>
-          <option><%= n+1 %></option>
+      <select name="reservation[guests]" id="guestcount" placeholder="Guests">
+        <% _.times(12, function (n) { %>
+          <option
+            value="<%= n+1 %>"
+            <% if (guests == n+1) { %>
+              selected
+            <% } %>
+          ><%= n+1 %> <%= pluralize('Guest', n+1) %></option>
         <% }); %>
       </select>
     </div>
@@ -60,4 +65,7 @@
     Request to Book
   <% } %>
   </button>
+  <div class="reservation-errors">
+
+  </div>
 </div>

@@ -46,8 +46,6 @@ body h4 {
 
   .detail-section {
     margin-bottom: 10px;
-    /* padding: 10px 0px; */
-
   }
 
   .listing-photos {
@@ -109,6 +107,33 @@ body h4 {
   display: block;
 
   .search-panel {
+    .panel-section {
+      padding: 10px 20px;
+    }
+
+    .col-sm-4 {
+      padding: 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px 8px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-size: 14px;
+    }
+    input:focus, select:focus {
+      border: thin solid #aaa;
+      outline: none;
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      background-color: white;
+    }
+
     #price-min, #price-max {
       height: 14px;
       padding: 0 10px;
@@ -137,30 +162,9 @@ body h4 {
     width:100%;
     padding-bottom: 67%;
     position: relative;
-    overflow: hidden;
-  }
-  .img-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height:100%;
-  }
-  .img-inner {
-    right: -50%;
-    position: relative;
-    display: inline-block;
-    height: 100%;
-  }
-  img {
-    position: relative;
-    height: 100%;
-    width: auto;
-    vertical-align: middle;
-    text-align: center;
-    margin: 0 auto;
-    left: -50%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
   }
   .item-price {
     position: absolute;
@@ -190,6 +194,10 @@ div.search-panel {
   margin-bottom: 15px;
   margin-left: -20px;
   margin-right: -20px;
+}
+
+.reviews {
+  padding-bottom: 100px;
 }
 
 

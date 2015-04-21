@@ -13,8 +13,6 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
   },
 
   initMap: function () {
-    console.log('initializing map');
-
     this._map = this.generateMap();
     LastAirBnb.Map = this._map;
 

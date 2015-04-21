@@ -10,8 +10,14 @@ LastAirBnb.Views.ListingsSearchInterface = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template();
+    var content = this.template({
+      guests: LastAirBnb.searchParams.guests,
+      checkin: LastAirBnb.searchParams.checkin,
+      checkout: LastAirBnb.searchParams.checkout,
+    });
     this.$el.html(content);
+    this.$('#checkin').datepicker({ minDate: 0 });
+    this.$('#checkout').datepicker({ minDate: 1 });
 
     var $priceRange = this.$("#price-range");
     $priceRange.slider({

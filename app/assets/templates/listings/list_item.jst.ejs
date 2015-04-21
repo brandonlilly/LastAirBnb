@@ -1,18 +1,7 @@
-<%
-
-
-var imgurl = "/assets/Ember_Island_port.png"
-  if(listing.id % 2 === 0) {
-    imgurl = "/assets/southern-air-temple.jpg"
-  }
- %>
 <a href="<%= listing.href() %>">
-  <div class="img-viewport">
-    <div class="img-wrapper">
-      <div class="img-inner">
-        <img src="<%= listing.get('cover_photo_url') %>" alt="" />
-      </div>
-    </div>
+  <div class="img-viewport"
+    style="background-image: url(<%= listing.get('cover_photo_url') %>)"
+  >
     <div class="item-price">
       <%= listing.get('price') %> <span class='yuan'>yuan</span>
     </div>
