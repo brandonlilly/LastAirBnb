@@ -1,8 +1,8 @@
 <div class="row">
 
   <% photos.each(function (photo, index) { %>
-
-      <div class="col-md-6 row-full-height photo-list-item-wrap">
+      <% colClass = (index === 0 && photos.length % 2 === 1) ? 'col-md-12' : 'col-md-6' %>
+      <div class="<%= colClass %> row-full-height photo-list-item-wrap">
         <div class="photo-list-item" style="background-image: url(<%= photo.escape('url') %>)">
 
         </div>

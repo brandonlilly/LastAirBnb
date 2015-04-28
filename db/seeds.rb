@@ -430,8 +430,8 @@ zaofu_apartment = hongli.listings.create!(
   bedrooms: 1,
   bathrooms: 1,
   home_type_id: apartment.id,
-  lat: -9.188870084473393,
-  lng: 49.95758056640625
+  lat: -7.885147283424318,
+  lng: 48.1201171875
 )
 cover = zaofu_apartment.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-apartment/apartment.jpg')
 zaofu_apartment.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-apartment/kitchen.jpg')
@@ -451,13 +451,13 @@ zaofu_mansion = suyin.listings.create!(
   bedrooms: 8,
   bathrooms: 4,
   home_type_id: estate.id,
-  lat: -9.188870084473393,
-  lng: 49.91363525390625
+  lat: -8.754794702435605,
+  lng: 46.845703125
 )
-cover = zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/court.jpg')
+cover = zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/porch.jpg')
 zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/main-outside.jpg')
 zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/zaofu-room.jpg')
-zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/porch.jpg')
+zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/court.jpg')
 zaofu_mansion.update!(cover_photo_id: cover.id)
 zaofu_mansion.listing_amenities.create!(amenity: heating)
 zaofu_mansion.listing_amenities.create!(amenity: kitchen)
@@ -476,12 +476,12 @@ fish_merchant = poe.listings.create!(
   bedrooms: 0,
   bathrooms: 0,
   home_type_id: house.id,
-  lat: -9.188870084473393,
-  lng: 49.91363525390625
+  lat: -21.616579336740593,
+  lng: 31.8603515625
 )
 cover = fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/front.jpg')
-fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger1.jpg')
 fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger2.jpg')
+fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger1.jpg')
 fish_merchant.update!(cover_photo_id: cover.id)
 fish_merchant.listing_amenities.create!(amenity: heating)
 fish_merchant.listing_amenities.create!(amenity: kitchen)
