@@ -75,6 +75,7 @@
         padding: 10px 8px;
         border: 1px solid #ccc;
         margin: 0;
+        height: 44px;
       }
       input:focus, select:focus {
         border: thin solid #aaa;
@@ -90,6 +91,7 @@
         outline: none;
         width: 90px;
         border-radius: 0;
+        line-height:1;
       }
 
       button {

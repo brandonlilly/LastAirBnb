@@ -121,6 +121,7 @@ body h4 {
       border: 1px solid #ccc;
       border-radius: 2px;
       font-size: 14px;
+      height: 38px;
     }
     input:focus, select:focus {
       border: thin solid #aaa;
@@ -132,6 +133,7 @@ body h4 {
       appearance: none;
       outline: none;
       background-color: white;
+      line-height: 1;
     }
 
     #price-min, #price-max {

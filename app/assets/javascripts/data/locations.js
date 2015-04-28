@@ -10,6 +10,7 @@ LastAirBnb.Locations = {
     lat: 45.9511496866914, lng: 95.80078125,
     zoom: 5,
     styleType: 'city',
+    searchable: true,
   },
   'Omashu': {
     lat: 9.362352822055605, lng: 43.505859375,
@@ -38,7 +39,11 @@ LastAirBnb.Locations = {
     lat: 13.239945499286312, lng: 82.44140625,
     zoom: 4,
     styleType: 'geography',
-    searchable: true,
+  },
+  'Patola Mountain Range': {
+    lat: -45.46013063792099, lng: -6.4324951171875,
+    zoom: 4,
+    styleType: 'city',
   },
   'Air Temple Island': {
     lat: 38.09998264736481, lng: 4.04296875,
@@ -58,7 +63,7 @@ LastAirBnb.Locations = {
     styleType: 'minor',
   },
   'Whale Tail Island': {
-    lat: -27.76132987450523, lng: 17.5341796875,
+    lat: -26.980828590472093, lng: 17.78961181640625,
     zoom: 5,
     styleType: 'minor',
   },
@@ -79,5 +84,11 @@ LastAirBnb.Locations = {
     styleType: 'minor',
     searchable: true,
   },
+  'Kyoshi Island': {
+    lat: -28.420391085674304, lng: 35.042266845703125,
+    zoom: 5,
+    styleType: 'minor',
+  },
+
 
 }

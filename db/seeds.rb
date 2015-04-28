@@ -21,8 +21,10 @@ asami =   User.create!(name: 'Asami Sato', email: 'asami', password: 'password')
 hiroshi = User.create!(name: 'Hiroshi Sato', email: 'hiroshi', password: 'password');
 korra =   User.create!(name: 'Korra', email: 'korra', password: 'password');
 senna =   User.create!(name: 'Senna', email: 'senna', password: 'password');
+tonraq =  User.create!(name: 'Tonraq', email: 'tonraq', password: 'password');
 mako =    User.create!(name: 'Mako', email: 'mako', password: 'password');
 bolin =   User.create!(name: 'Bolin', email: 'bolin', password: 'password');
+yin =     User.create!(name: 'Yin', email: 'yin', password: 'password');
 pema =    User.create!(name: 'Pema', email: 'pema', password: 'password');
 tenzin =  User.create!(name: 'Tenzin', email: 'tenzin', password: 'password');
 iroh =    User.create!(name: 'Iroh', email: 'iroh', password: 'password');
@@ -30,15 +32,25 @@ ozai =    User.create!(name: 'Ozai', email: 'ozai', password: 'password');
 aiwei =   User.create!(name: 'Aiwei', email: 'aiwei', password: 'password');
 hua =     User.create!(name: 'Hua', email: 'hua', password: 'password');
 gommu =   User.create!(name: 'Gommu', email: 'gommu', password: 'password');
+houting = User.create!(name: 'Hou-Ting', email: 'houting', password: 'password');
+hatoa =   User.create!(name: 'Hatoa', email: 'hatoa', password: 'password');
+tarrlok = User.create!(name: 'Tarrlok', email: 'tarrlok', password: 'password');
+hongli =  User.create!(name: 'Hong Li', email: 'hongli', password: 'password');
+poe =     User.create!(name: 'Poe', email: 'poe', password: 'password');
+ming =    User.create!(name: 'Ming', email: 'ming', password: 'password');
 
 brandon = User.create!(name: 'Brandon', email: 'brandon', password: 'brandon');
 
-house =       HomeType.create!(name: "House")
+house = HomeType.create!(name: "House")
 earth_house = HomeType.create!(name: "Earth House")
 temple = HomeType.create!(name: "Temple")
 inn = HomeType.create!(name: "Inn")
 apartment = HomeType.create!(name: "Apartment")
 tent = HomeType.create!(name: "Tent")
+palace = HomeType.create!(name: "Palace")
+commune = HomeType.create!(name: "Commune")
+estate = HomeType.create!(name: "Estate")
+hotel = HomeType.create!(name: "Hotel")
 HomeType.create!(name: "Villa")
 HomeType.create!(name: "Castle")
 HomeType.create!(name: "Mansion")
@@ -81,7 +93,7 @@ sato_estate = asami.listings.create!(
   beds: 18,
   bedrooms: 12,
   bathrooms: 6,
-  home_type_id: house.id,
+  home_type_id: estate.id,
   lat: 41.508577297439324,
   lng: 8.580322265625
 )
@@ -115,8 +127,8 @@ aiwei_house = aiwei.listings.create!(
   bedrooms: 1,
   bathrooms: 1,
   home_type_id: house.id,
-  lat: -10.01212955790814,
-  lng: 51.01226806640625
+  lat: -9.40571004160001,
+  lng: 49.588165283203125
 )
 cover = aiwei_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/aiwei-house/overlook.jpg')
 aiwei_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/aiwei-house/front-room.jpg')
@@ -183,8 +195,8 @@ slum = gommu.listings.create!(
   lat: 44.465151013519616,
   lng: 6.9962310791015625
 )
-cover = slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums2.jpg')
-slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums1.jpg')
+cover = slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums1.jpg')
+slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums2.jpg')
 slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums3.jpg')
 slum.update!(cover_photo_id: cover.id)
 
@@ -263,29 +275,260 @@ air_temple = tenzin.listings.create!(
   lat: -42.553080288955805,
   lng: -2.8125
 )
-# need to convert to jpg
-cover = air_temple.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/southern-air-temple/outside-view.png')
+cover = air_temple.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/southern-air-temple/outside-view.jpg')
 air_temple.update!(cover_photo_id: cover.id)
 air_temple.listing_amenities.create!(amenity: heating)
 air_temple.listing_amenities.create!(amenity: essentials)
 air_temple.reviews.create!(body: 'I had a very peaceful stay.', rating: 5, user: korra);
 
 
-ember_island = ozai.listings.create!(
-  title: "Quaint Beach House",
-  price: 1100,
-  address: 'Ember Island, Fire Nation',
-  description: 'Great for family vacations. Beautiful beaches to get away and relax. Plenty of day and nightime activities.',
+royal_palace = tonraq.listings.create!(
+  title: 'Royal Palace',
+  price: 3610,
+  address: 'Harbor City, Southern Water Tribe',
+  description: 'Seat of the Southern Water Tribe government.',
+  capacity: 12,
+  beds: 12,
+  bedrooms: 7,
+  bathrooms: 3,
+  home_type_id: palace.id,
+  lat: -60.37042901631508,
+  lng: -3.21624755859375
+)
+cover = royal_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/ice-palace/palace-outside.jpg')
+royal_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/ice-palace/lanterns.jpg')
+royal_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/ice-palace/entrance.jpg')
+royal_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/ice-palace/throne-side.jpg')
+royal_palace.update!(cover_photo_id: cover.id)
+royal_palace.listing_amenities.create!(amenity: heating)
+royal_palace.listing_amenities.create!(amenity: kitchen)
+royal_palace.listing_amenities.create!(amenity: essentials)
+royal_palace.reviews.create!(body: 'Much better place to stay now that Unaloq is gone.', rating: 4, user: korra);
+
+
+cousin_house = yin.listings.create!(
+  title: 'Comfy Communal Living',
+  price: 120,
+  address: 'Ba Sing Se, Earth Kingdom',
+  description: 'This was the home of our family for over 60 years!',
+  capacity: 5,
+  beds: 5,
+  bedrooms: 2,
+  bathrooms: 2,
+  home_type_id: commune.id,
+  lat: 46.92025531537451,
+  lng: 98.4210205078125
+)
+cover = cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/side-windows.jpg')
+cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/common.jpg')
+cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/path.jpg')
+cousin_house.update!(cover_photo_id: cover.id)
+cousin_house.listing_amenities.create!(amenity: heating)
+cousin_house.listing_amenities.create!(amenity: essentials)
+cousin_house.reviews.create!(body: 'The people here are the best!', rating: 5, user: bolin);
+cousin_house.reviews.create!(body: 'I enjoyed my stay here.', rating: 4, user: mako);
+
+
+earth_palace = houting.listings.create!(
+  title: 'Earth Palace',
+  price: 3200,
+  address: 'Ba Sing Se, Earth Kingdom',
+  description: 'Seat of the Earth Kingdom government.',
+  capacity: 14,
+  beds: 14,
+  bedrooms: 10,
+  bathrooms: 4,
+  home_type_id: palace.id,
+  lat: 46.34692761055676,
+  lng: 95.57281494140625
+)
+cover = earth_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/earth-palace/front.jpg')
+earth_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/earth-palace/bird-view.jpg')
+earth_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/earth-palace/throne-overhead.jpg')
+earth_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/earth-palace/throne-room.jpg')
+earth_palace.update!(cover_photo_id: cover.id)
+earth_palace.listing_amenities.create!(amenity: heating)
+earth_palace.listing_amenities.create!(amenity: essentials)
+earth_palace.reviews.create!(body: 'This place is the worst! Stay far away from this place, the host is crazy!', rating: 1, user: korra);
+
+
+earth_guest_house = houting.listings.create!(
+  title: 'Palace Guest House',
+  price: 1600,
+  address: 'Ba Sing Se, Earth Kingdom',
+  description: 'Guest house to the Earth Kingdom Royal Palace.',
+  capacity: 10,
+  beds: 8,
+  bedrooms: 6,
+  bathrooms: 3,
+  home_type_id: house.id,
+  lat: 46.31658418182218,
+  lng: 95.9600830078125
+)
+cover = earth_guest_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/guest-home/outside.jpg')
+earth_guest_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/guest-home/inside.jpg')
+earth_guest_house.update!(cover_photo_id: cover.id)
+earth_guest_house.listing_amenities.create!(amenity: heating)
+earth_guest_house.listing_amenities.create!(amenity: kitchen)
+earth_guest_house.listing_amenities.create!(amenity: essentials)
+earth_guest_house.reviews.create!(body: "Living here wasn't too bad, but there's always trouble brewing in Ba Sing Se.", rating: 3, user: tenzin);
+earth_guest_house.reviews.create!(body: "When the host tries to have you killed, it's a bad sign.", rating: 2, user: asami);
+
+
+white_lotus = hatoa.listings.create!(
+  title: 'White Lotus Compound',
+  price: 440,
+  address: 'Harbor City, Southern Water Tribe',
+  description: 'Headquarters of the Order of the White Lotus. Avatar Korra spent her youth training here.',
+  capacity: 8,
+  beds: 7,
+  bedrooms: 5,
+  bathrooms: 3,
+  home_type_id: house.id,
+  lat: -60.823494332539646,
+  lng: -3.04046630859375
+)
+cover = white_lotus.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/white-lotus/dining.jpg')
+white_lotus.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/white-lotus/stables.jpg')
+white_lotus.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/white-lotus/bird-view.jpg')
+white_lotus.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/white-lotus/grounds-side.jpg')
+white_lotus.update!(cover_photo_id: cover.id)
+white_lotus.listing_amenities.create!(amenity: heating)
+white_lotus.listing_amenities.create!(amenity: kitchen)
+white_lotus.listing_amenities.create!(amenity: essentials)
+white_lotus.reviews.create!(body: "The host was very hospitable. My family was very comfortable during our stay here.", rating: 5, user: tenzin);
+
+
+yakone_yurt = tarrlok.listings.create!(
+  title: 'Warm Yurt',
+  price: 440,
+  address: 'Northern Water Tribe',
+  description: "A warm place to stay in a quiet village.",
+  capacity: 2,
+  beds: 2,
+  bedrooms: 1,
+  bathrooms: 1,
+  home_type_id: house.id,
+  lat: 65.54936668811527,
+  lng: 19.15191650390625
+)
+cover = yakone_yurt.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/yakone-yurt/side-view.jpg')
+yakone_yurt.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/yakone-yurt/inside-view.jpg')
+yakone_yurt.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/yakone-yurt/village-view.jpg')
+yakone_yurt.update!(cover_photo_id: cover.id)
+yakone_yurt.listing_amenities.create!(amenity: heating)
+yakone_yurt.listing_amenities.create!(amenity: essentials)
+
+
+zaofu_apartment = hongli.listings.create!(
+  title: 'Small Apartment',
+  price: 720,
+  address: 'Zaofu, Earth Kingdom',
+  description: "Good decorations. Everything is kept clean and tidy. You'll feel right at home! Come and visit Zaofu!",
+  capacity: 2,
+  beds: 1,
+  bedrooms: 1,
+  bathrooms: 1,
+  home_type_id: apartment.id,
+  lat: -9.188870084473393,
+  lng: 49.95758056640625
+)
+cover = zaofu_apartment.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-apartment/apartment.jpg')
+zaofu_apartment.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-apartment/kitchen.jpg')
+zaofu_apartment.update!(cover_photo_id: cover.id)
+zaofu_apartment.listing_amenities.create!(amenity: heating)
+zaofu_apartment.listing_amenities.create!(amenity: kitchen)
+zaofu_apartment.listing_amenities.create!(amenity: essentials)
+
+
+zaofu_mansion = suyin.listings.create!(
+  title: "Beifong Estate",
+  price: 950,
+  address: 'Zaofu, Earth Kingdom',
+  description: "My husband and I designed and founded Zaofu.",
+  capacity: 12,
+  beds: 12,
+  bedrooms: 8,
+  bathrooms: 4,
+  home_type_id: estate.id,
+  lat: -9.188870084473393,
+  lng: 49.91363525390625
+)
+cover = zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/court.jpg')
+zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/main-outside.jpg')
+zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/zaofu-room.jpg')
+zaofu_mansion.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/zaofu-mansion/porch.jpg')
+zaofu_mansion.update!(cover_photo_id: cover.id)
+zaofu_mansion.listing_amenities.create!(amenity: heating)
+zaofu_mansion.listing_amenities.create!(amenity: kitchen)
+zaofu_mansion.listing_amenities.create!(amenity: essentials)
+zaofu_mansion.reviews.create!(body: "Suyin is always a gracious host!", rating: 5, user: tenzin);
+zaofu_mansion.reviews.create!(body: "My stay here was great except for the part where I got kidnapped..", rating: 4, user: korra);
+
+
+fish_merchant = poe.listings.create!(
+  title: "Fish Merchant Stand",
+  price: 15,
+  address: 'Zaofu, Earth Kingdom',
+  description: "I've had two avatars come by here! There's not a lot of space but the view is unbeatable. Just don't mind the fish smell!",
+  capacity: 1,
+  beds: 0,
+  bedrooms: 0,
+  bathrooms: 0,
+  home_type_id: house.id,
+  lat: -9.188870084473393,
+  lng: 49.91363525390625
+)
+cover = fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/front.jpg')
+fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger1.jpg')
+fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger2.jpg')
+fish_merchant.update!(cover_photo_id: cover.id)
+fish_merchant.listing_amenities.create!(amenity: heating)
+fish_merchant.listing_amenities.create!(amenity: kitchen)
+fish_merchant.listing_amenities.create!(amenity: essentials)
+
+
+fancy_hotel = ming.listings.create!(
+  title: "Lavish Hotel",
+  price: 2000,
+  address: 'Republic City, United Republic of Nations',
+  description: "Upscale hotel for Republic City's more affluent citizens.",
   capacity: 4,
   beds: 4,
-  bedrooms: 3,
-  bathrooms: 2,
-  home_type_id: house.id,
-  lat: 12.597454504832017,
-  lng: -44.674530029296875
+  bedrooms: 2,
+  bathrooms: 1,
+  home_type_id: hotel.id,
+  lat: 43.8028187190472,
+  lng: 8.25347900390625
 )
-cover = ember_island.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/beach-house/outside-view.png')
-ember_island.update!(cover_photo_id: cover.id)
-ember_island.listing_amenities.create!(amenity: heating)
-ember_island.listing_amenities.create!(amenity: essentials)
-ember_island.listing_amenities.create!(amenity: kitchen)
+cover = fancy_hotel.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fancy-hotel/front.jpg')
+fancy_hotel.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fancy-hotel/dining.jpg')
+fancy_hotel.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fancy-hotel/fitting-room.jpg')
+fancy_hotel.update!(cover_photo_id: cover.id)
+fancy_hotel.listing_amenities.create!(amenity: heating)
+fancy_hotel.listing_amenities.create!(amenity: essentials)
+fancy_hotel.reviews.create!(body: "I've never been so pampered before.", rating: 5, user: mako);
+fancy_hotel.reviews.create!(body: "I come here fairly often. The accomodations and service are always top-notch!", rating: 5, user: asami);
+
+
+secluded_lodge = senna.listings.create!(
+  title: "Secluded Lodge",
+  price: 240,
+  address: 'Harbor City, Southern Water Tribe',
+  description: "It's located in the outskirts, overlooking the city. We don't stay here often so we rent it out most of the year.",
+  capacity: 2,
+  beds: 2,
+  bedrooms: 1,
+  bathrooms: 1,
+  home_type_id: house.id,
+  lat: -60.4355423066923,
+  lng: -5.72113037109375
+)
+cover = secluded_lodge.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/secluded-lodge/inside.jpg')
+secluded_lodge.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/secluded-lodge/front-profile.jpg')
+secluded_lodge.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/secluded-lodge/entrance.jpg')
+secluded_lodge.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/secluded-lodge/couch.jpg')
+secluded_lodge.update!(cover_photo_id: cover.id)
+secluded_lodge.listing_amenities.create!(amenity: heating)
+secluded_lodge.listing_amenities.create!(amenity: essentials)
+secluded_lodge.listing_amenities.create!(amenity: kitchen)

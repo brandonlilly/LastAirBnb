@@ -11,7 +11,6 @@ LastAirBnb.Views.ReviewsIndex = Backbone.View.extend({
 
     this.collection.each(function (review) {
       var view = new LastAirBnb.Views.ReviewShow({ model: review });
-      // debugger
       this.$('.review-list').append(view.render().$el);
     }, this);
     return this;
