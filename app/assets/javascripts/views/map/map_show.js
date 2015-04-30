@@ -91,15 +91,27 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
       listing.get('lat'), listing.get('lng')
     );
 
-    var marker = new google.maps.Marker({
+    // var marker = new google.maps.Marker({
+    //   position: latLng,
+    //   map: this._map,
+    //   title: listing.get('title')
+    // });
+
+    marker = new ListingMarker({
       position: latLng,
       map: this._map,
-      title: listing.get('title')
+      marker_id: '123',
+      listing: listing,
     });
 
-    google.maps.event.addListener(marker, 'click', function (event) {
-      view.showMarkerInfo(event, marker);
-    });
+    // google.maps.event.addListener(marker, 'click', function (event) {
+    // });
+
+    // google.maps.event.addDomListener(marker.el, "click", function(event) {
+    //   google.maps.event.trigger(self, "click");
+    //   console.log('clicked ' + listing.escape('name'));
+    //   // alert('You clicked on a custom marker!');
+    // });
 
     this._markers[listing.id] = marker;
   },
@@ -161,6 +173,14 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
   remove: function () {
     LastAirBnb.Map = null;
     Backbone.View.prototype.remove.call(this);
+  },
+
+  highlightMarker: function (listingId) {
+    this._markers[listingId].highlight();
+  },
+
+  unhighlightMarker: function (listingId) {
+    this._markers[listingId].unhighlight();
   },
 
   displayLatLng: function (event) {

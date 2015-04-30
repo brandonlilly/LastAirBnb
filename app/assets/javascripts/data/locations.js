@@ -18,7 +18,7 @@ LastAirBnb.Locations = {
     styleType: 'city',
   },
   'Zaofu': {
-    lat: -9.535748998133615, lng: 49.04296875,
+    lat: -9.318990192397903, lng: 47.76031494140625,
     zoom: 5,
     styleType: 'city',
     searchable: true,

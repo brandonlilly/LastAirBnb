@@ -192,8 +192,8 @@ slum = gommu.listings.create!(
   bedrooms: 0,
   bathrooms: 0,
   home_type_id: tent.id,
-  lat: 44.465151013519616,
-  lng: 6.9962310791015625
+  lat: 45.1510532655634,
+  lng: 5.071563720703125
 )
 cover = slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums1.jpg')
 slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums2.jpg')
@@ -319,7 +319,7 @@ cousin_house = yin.listings.create!(
   lat: 46.92025531537451,
   lng: 98.4210205078125
 )
-cover = cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/side-windows.jpg')
+cover = cousin_house.photos.crea te!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/side-windows.jpg')
 cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/common.jpg')
 cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/path.jpg')
 cousin_house.update!(cover_photo_id: cover.id)
@@ -339,8 +339,8 @@ earth_palace = houting.listings.create!(
   bedrooms: 10,
   bathrooms: 4,
   home_type_id: palace.id,
-  lat: 46.34692761055676,
-  lng: 95.57281494140625
+  lat: 47.398349200359256,
+  lng: 94.86968994140625
 )
 cover = earth_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/earth-palace/front.jpg')
 earth_palace.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/earth-palace/bird-view.jpg')
