@@ -1,5 +1,3 @@
-# render json: @listing, include: [:amenities, :home_type, :reviews, :photos, :cover_photo]
-
 json.(@listing,
   :id, :title, :price, :capacity, :address, :description,
   :created_at, :updated_at, :bedrooms, :beds, :bathrooms, :lat, :lng
@@ -12,7 +10,7 @@ json.amenities @listing.amenities do |amenity|
 end
 
 json.reviews @listing.reviews do |review|
-  json.(review, :id, :body, :rating)
+  json.(review, :id, :body, :rating, :created_at, :updated_at)
   json.user review.user, :id, :name
 end
 
@@ -20,4 +18,4 @@ json.photos @listing.photos
 
 json.cover_photo @listing.cover_photo
 
-json.owner @listing.owner, :id, :name
+json.owner @listing.owner, :id, :name, :photo_url

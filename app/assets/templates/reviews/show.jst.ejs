@@ -1,7 +1,23 @@
-<div class="col-lg-3">
-  <%= review.user().escape('name') %>
+<div class="col-md-2 col-sm-2">
+  <% var user = review.user() %>
+  <div class="user-portrait">
+    <a href="<%= user.href() %>" class="user-photo">
+      <img
+        src="<%= user.escape('photo_url') %>"
+        alt=" <%= user.escape('name') %>"
+      />
+    </a>
+    <a href="<%= user.href() %>">
+      <%= review.user().escape('name') %>
+    </a>
+  </div>
 </div>
 
-<div class="col-lg-9">
-  <%= review.get('body') %> <%= pluralize('star', review.get('rating'), true) %>
+<div class="col-md-9 col-sm-9">
+  <div class="review-body">
+    <%= review.get('body') %> <%= pluralize('star', review.get('rating'), true) %>
+    <div class="date">
+      <%= review.date() %>
+    </div>
+  </div>
 </div>

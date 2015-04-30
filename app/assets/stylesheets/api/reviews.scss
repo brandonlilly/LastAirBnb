@@ -1,3 +1,46 @@
 // Place all the styles related to the Api::Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-list {
+  margin-top: 20px;
+}
+.review-item {
+  min-height: 110px;
+  margin-bottom: 20px;
+
+  .user-portrait {
+    text-align: center;
+    padding: 10px 0;
+
+    a.user-photo {
+      border-radius: 50%;
+      overflow: hidden;
+      display: block;
+      height: 72px;
+      width: 72px;
+      margin: 0 auto;
+      background-color: #369;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #82888a;
+
+    }
+  }
+
+  .review-body {
+    min-height: 110px;
+    border-bottom: 1px solid #ddd;
+
+    .date {
+      line-height: 50px;
+      color: #82888a;
+    }
+  }
+
+}

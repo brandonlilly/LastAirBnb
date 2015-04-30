@@ -46,6 +46,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Campton';
+  src: font-url('Campton-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: Opal, Cylinder, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #565a5c; /* #5e6264; */
@@ -71,9 +78,22 @@ nav.navbar {
   background: #fff;
   border-bottom: 1px solid #dce0e0;
 
-  /* .navbar-brand, .navbar-brand:hover {
-    color: #ff5a5f;
-  } */
+  .navbar-brand, .navbar-brand:hover {
+    // color: #ff5a5f;
+    font-weight: bold;
+    font-family: Campton, Opal, Cylinder, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 15px 0;
+    // color: #004f58;
+    // font-style: italic;
+    // color: #7FBBC2;
+    // color: #007a87;
+
+    span {
+      // font-style: none;
+      // color: #007a87;
+      // color: #ff5a5f;
+    }
+  }
 
   #search input {
     width: 240px;
