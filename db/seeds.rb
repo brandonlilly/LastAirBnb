@@ -319,7 +319,7 @@ cousin_house = yin.listings.create!(
   lat: 46.92025531537451,
   lng: 98.4210205078125
 )
-cover = cousin_house.photos.crea te!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/side-windows.jpg')
+cover = cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/side-windows.jpg')
 cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/common.jpg')
 cousin_house.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cousin-house/path.jpg')
 cousin_house.update!(cover_photo_id: cover.id)
