@@ -12,14 +12,8 @@ class Api::ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    render json: @listing, include: [:amenities, :home_type, :reviews, :photos, :cover_photo]
+    render :show
   end
-
-  # def search
-  #   # @listings = search_listings(search_params)
-  #   @listings = Listing.all
-  #   render json: @listings
-  # end
 
   private
 

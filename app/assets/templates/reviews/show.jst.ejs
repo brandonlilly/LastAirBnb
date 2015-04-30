@@ -1,1 +1,7 @@
-<%= review.get('body') %>  <%= pluralize('star', review.get('rating'), true) %>
+<div class="col-lg-3">
+  <%= review.user().escape('name') %>
+</div>
+
+<div class="col-lg-9">
+  <%= review.get('body') %> <%= pluralize('star', review.get('rating'), true) %>
+</div>

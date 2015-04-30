@@ -1,6 +1,7 @@
 LastAirBnb.Views.ReviewShow = Backbone.View.extend({
   template: JST['reviews/show'],
-  tagName: 'li',
+  tagName: 'div',
+  className: 'review-item row',
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
