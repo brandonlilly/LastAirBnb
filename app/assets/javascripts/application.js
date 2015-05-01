@@ -20,6 +20,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
+//= require backbone.modal-min
 //= require helpers
 //= require last_air_bnb
 //= require_tree ../templates
@@ -27,4 +28,5 @@
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
+//= require_tree ./modals
 //= require_tree ./routers

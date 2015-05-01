@@ -4,8 +4,10 @@ window.LastAirBnb = {
   Views: {},
   Routers: {},
   Locations: {},
+  Modals: {},
   mapParams: {},
   searchParams: {},
+  
   initialize: function() {
     new LastAirBnb.Routers.Router({ $rootEl: $('#main') });
 

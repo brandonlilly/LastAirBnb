@@ -35,8 +35,8 @@
           </li>
           <li><%= link_to 'Log Out', session_url(session[:token]), method: :delete %></li>
         <% else %>
-          <li><%= link_to 'Log in', new_session_url %></li>
-          <li><%= link_to 'Sign up', new_user_url %></li>
+          <li><%= link_to 'Log in', new_session_url, id: 'login' %></li>
+          <li><%= link_to 'Sign up', new_user_url, id: 'signin' %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -6,7 +6,7 @@
   <li><input
     id="checkin"
     type="text"
-    class="datepicker"
+    class="datepicker hidden-xs"
     name="reservation[start_date]"
     value=""
     placeholder="Check In"
@@ -15,13 +15,13 @@
   <li><input
     id="checkout"
     type="text"
-    class="datepicker"
+    class="datepicker hidden-xs"
     name="reservation[end_date]"
     value=""
     placeholder="Check Out"
   ></li>
 
-  <li><select name="reservation[guests]" id="guestcount" placeholder="Guests">
+  <li><select name="reservation[guests]" id="guestcount" placeholder="Guests" class="hidden-xs">
     <% _.times(12, function (n) { %>
       <option value="<%= n+1 %>"><%= n+1 %> <%= pluralize('Guest', n+1) %></option>
     <% }); %>

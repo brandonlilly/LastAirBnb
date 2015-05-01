@@ -231,8 +231,8 @@ cozy_igloo = pema.listings.create!(
   bedrooms: 2,
   bathrooms: 1,
   home_type_id: house.id,
-  lat: -60.15244221438077,
-  lng: -4.09515380859375
+  lat: -59.84481485969105,
+  lng: -4.7632598876953125
 )
 cover = cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/outside-night.jpg')
 cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/outside-front.jpg')
@@ -385,8 +385,8 @@ white_lotus = hatoa.listings.create!(
   bedrooms: 5,
   bathrooms: 3,
   home_type_id: house.id,
-  lat: -60.823494332539646,
-  lng: -3.04046630859375
+  lat: -60.75915950226988,
+  lng: -2.2144317626953125
 )
 cover = white_lotus.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/white-lotus/dining.jpg')
 white_lotus.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/white-lotus/stables.jpg')
@@ -521,8 +521,8 @@ secluded_lodge = senna.listings.create!(
   bedrooms: 1,
   bathrooms: 1,
   home_type_id: house.id,
-  lat: -60.4355423066923,
-  lng: -5.72113037109375
+  lat: -60.261617082844616,
+  lng: -6.5650177001953125
 )
 cover = secluded_lodge.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/secluded-lodge/inside.jpg')
 secluded_lodge.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/secluded-lodge/front-profile.jpg')
