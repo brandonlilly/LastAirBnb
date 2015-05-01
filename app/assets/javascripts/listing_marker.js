@@ -50,9 +50,13 @@ ListingMarker.prototype.getPosition = function() {
 };
 
 ListingMarker.prototype.highlight = function() {
-	this.el.classList.add('active');
+	if (this.el) {
+		this.el.classList.add('active');
+	}
 };
 
 ListingMarker.prototype.unhighlight = function() {
-	this.el.classList.remove('active');
+	if (this.el) {
+		this.el.classList.remove('active');
+	}
 };

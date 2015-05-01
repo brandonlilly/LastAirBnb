@@ -2,6 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.login-modal {
+  input {
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #565a5c;
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px;
+    width:100%;
+    margin-bottom: 6px;
+  }
+  button {
+    background-color: #ff5a5f;
+    border-radius: 3px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 30px;
+    width:100%;
+    &:hover {
+      background-color: rgb(255, 126, 130);
+    }
+    &:focus {
+      background-color: #e00007;
+      outline: none;
+    }
+  }
+  .or-line {
+    text-align: center;
+    position: relative;
+    h6 {
+      font-size: 14px;
+      background: white;
+      display: inline-block;
+      position: relative;
+      line-height: 1;
+      padding: 0 5px;
+    }
+    hr {
+      position: absolute;
+      top: 3px;
+      left: 5%;
+      width: 90%;
+    }
+  }
+}
+
+
 .bbm-wrapper {
   box-sizing: border-box;
   position: fixed;
@@ -24,7 +75,7 @@
   border-radius: 3px;
   margin: auto;
   width: auto;
-  max-width: 550px;
+  max-width: 300px;
   background: white;
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.9);
 }
@@ -39,7 +90,7 @@
 /* BLOCKS */
 
 .bbm-modal__topbar, .bbm-modal__bottombar {
-  padding: 0 30px;
+  padding: 0 10px;
 }
 
 .bbm-modal__topbar {
@@ -79,7 +130,7 @@
 }
 
 .bbm-modal__section {
-  padding: 0 30px;
+  padding: 0 20px;
   margin-top: 0px;
   font-size: 16px;
   line-height: 26px;
