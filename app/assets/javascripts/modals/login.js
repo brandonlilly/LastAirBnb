@@ -4,6 +4,15 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   viewContainer: '.my-container',
   submitEl: '.bbm-button',
 
+  initialize: function () {
+    
+  },
+
+  events: {
+    'submit .login-form': 'login',
+    'submit .signup-form': 'signup',
+  },
+
   views: {
     'click #login-tab': {
       name: 'login-tab',
@@ -20,5 +29,16 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   setActive: function(options) {
     this.$('.bbm-modal__tab a').removeClass('active');
     this.$('#'+options.name).addClass('active');
-  }
+  },
+
+  login: function (event) {
+    event.preventDefault();
+    console.log('log in!');
+  },
+
+  submit: function (event) {
+    event.preventDefault();
+    console.log('sign up!');
+  },
+
 });
