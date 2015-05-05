@@ -1,13 +1,17 @@
 <div class="bbm-modal__section">
   <h1>Log In</h1>
   <form class="login-form">
-    <input type="text" name="user[email]" value="" placeholder="Email">
-    <input type="password" name="user[password]" value="" placeholder="Password">
+    <input type="text" name="user[email]" class="login-email" placeholder="Email">
+    <input type="password" name="user[password]" class="login-password" placeholder="Password">
     <button class="btn btn-primary btn-large btn-block login-button">Log In</button>
   </form>
   <div class="or-line">
     <hr>
     <h6>or</h6>
   </div>
-  <button class="btn btn-primary btn-large btn-block guest-login-button">Guest Login</button>
+  <button class="btn btn-primary btn-large btn-block guest-login">Guest Login</button>
+</div>
+
+<div class="session-errors">
+  <ul></ul>
 </div>

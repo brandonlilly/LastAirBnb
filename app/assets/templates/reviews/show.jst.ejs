@@ -1,12 +1,12 @@
 <div class="col-md-2 col-sm-2">
   <% var user = review.user() %>
   <div class="user-portrait">
-    <a href="<%= user.href() %>" class="user-photo">
+    <!-- <a href="<%= user.href() %>" class="user-photo">
       <img
         src="<%= user.escape('photo_url') %>"
         alt=" <%= user.escape('name') %>"
       />
-    </a>
+    </a> -->
     <a href="<%= user.href() %>">
       <%= review.user().escape('name') %>
     </a>

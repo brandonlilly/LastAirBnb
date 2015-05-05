@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'root#root'
-  resources :users, only: [:new, :create, :destroy, :edit, :update]
+  resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do

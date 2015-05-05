@@ -2,15 +2,11 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   template: JST['users/login_modal'],
 
   viewContainer: '.my-container',
-  submitEl: '.bbm-button',
-
-  initialize: function () {
-    
-  },
 
   events: {
     'submit .login-form': 'login',
     'submit .signup-form': 'signup',
+    'click  .guest-login': 'guestLogin',
   },
 
   views: {
@@ -19,26 +15,83 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
       view: JST['users/login_form'],
       onActive: 'setActive'
     },
-    'click #signin-tab': {
-      name: 'signin-tab',
-      view: JST['users/signin_form'],
+    'click #signup-tab': {
+      name: 'signup-tab',
+      view: JST['users/signup_form'],
       onActive: 'setActive'
     }
   },
 
   setActive: function(options) {
+    console.log('setactive', options.name)
     this.$('.bbm-modal__tab a').removeClass('active');
     this.$('#'+options.name).addClass('active');
   },
 
   login: function (event) {
     event.preventDefault();
-    console.log('log in!');
+    var userData = $(event.currentTarget).serializeJSON();
+
+    $.ajax({
+      url: '/sessions',
+      type: 'POST',
+      data: userData,
+      success: function () {
+        window.location.replace('');
+      },
+      error: function (response) {
+        this.$('.session-errors ul').html('<li>Invalid log in</li>');
+        this.$('.session-errors').height(52);
+      }.bind(this)
+    });
   },
 
-  submit: function (event) {
+  signup: function (event) {
     event.preventDefault();
-    console.log('sign up!');
+    var userData = $(event.currentTarget).serializeJSON();
+
+    $.ajax({
+      url: '/users',
+      type: 'POST',
+      data: userData,
+      success: function () {
+        window.location.replace('');
+      },
+      error: function (response) {
+        if (response.responseJSON) {
+          var errors = '';
+          response.responseJSON.forEach(function (error) {
+            errors += ('<li>' + error + '</li>');
+          });
+          this.$('.session-errors ul').html(errors);
+          this.$('.session-errors').height(37 * response.responseJSON.length + 15);
+        }
+      }.bind(this)
+    });
   },
+
+  guestLogin: function() {
+    var email = 'korra@lastairbnb.com';
+    var password = 'password';
+    $('#login-tab').click();
+    this.animateInput($('.login-email'), email, function() {
+      this.animateInput($('.login-password'), password, function () {
+        $('.login-form').submit();
+      }.bind(this))
+    }.bind(this))
+  },
+
+  animateInput: function ($el, text, success) {
+    var _index = 0;
+    var textInterval = setInterval(function () {
+      var currentVal = $el.val();
+      $el.val(currentVal + text[_index]);
+      _index++;
+      if (_index >= text.length) {
+        clearInterval(textInterval);
+        success();
+      }
+    }.bind(this), 50);
+  }
 
 });

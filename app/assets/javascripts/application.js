@@ -20,7 +20,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
-//= require backbone.modal-min
+//= require backbone.modal-custom
 //= require helpers
 //= require last_air_bnb
 //= require_tree ../templates

@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in_user(@user)
-      redirect_to root_url
+      render json: @user
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      errors = @user.errors.full_messages.to_json
+      render json: errors, status: :unprocessable_entity
     end
   end
 

@@ -55,6 +55,29 @@
   }
 }
 
+.session-errors {
+  background-color: #FFD1C4;
+  width:100%;
+  -webkit-transition: height .5s ease;
+  -moz-transition: height .5s ease;
+  -ms-transition: height .5s ease;
+  -o-transition: height .5s ease;
+  transition: height .5s ease;
+  height: 0;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 0 15px;
+      margin: 15px 0;
+      font-size: 16px;
+      color: #565a5c;
+    }
+  }
+}
 
 .bbm-wrapper {
   box-sizing: border-box;
@@ -133,11 +156,12 @@
 }
 
 .bbm-modal__section {
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
   margin-top: 0px;
   font-size: 16px;
   line-height: 26px;
   color: #575656;
+  min-height: 290px;
 
   p {
     font-size: 16px;

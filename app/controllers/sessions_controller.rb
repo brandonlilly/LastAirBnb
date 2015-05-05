@@ -11,11 +11,9 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(email, password)
     if @user
       log_in_user(@user)
-      redirect_to root_url
+      render json: @user
     else
-      @user = User.new(email: email)
-      flash.now[:errors] = ["Invalid login information"]
-      render :new
+      render json: 'Invalid credentials'.to_json, status: :unprocessable_entity
     end
   end
 

@@ -10,12 +10,15 @@ LastAirBnb.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.listings = new LastAirBnb.Collections.Listings();
-    this.loginModal = new LastAirBnb.Modals.LoginModal();
     
-    $('#login').on('click', function(e){
+    $('#login, #signup').on('click', function(e){
       e.preventDefault();
-      $('.login-modal').html(this.loginModal.render().el);
+      var name = e.currentTarget.id + "-tab"
+      var loginModal = new LastAirBnb.Modals.LoginModal({ name: name });
+      $('.login-modal').html(loginModal.render().el);
+      $('#' + name).click();
     }.bind(this));
+
   },
 
   show: function (id) {

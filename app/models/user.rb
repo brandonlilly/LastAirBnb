@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   validates :email, :name, :password_digest, presence: true
   validates :email, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 6, allow_nil: true, message: "too short (minimum 6)" }
 
   has_many :sessions, dependent: :destroy
   has_many :listings, foreign_key: :owner_id, dependent: :destroy
