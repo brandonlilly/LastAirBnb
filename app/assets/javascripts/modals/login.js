@@ -70,9 +70,10 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   },
 
   guestLogin: function() {
+    event.preventDefault();
     var email = 'korra@lastairbnb.com';
     var password = 'password';
-    console.log(this.currentIndex);
+
     if (this.currentIndex !== 0) {
       this.openAt(0)
     }
@@ -93,7 +94,7 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
         clearInterval(textInterval);
         success();
       }
-    }.bind(this), 50);
+    }.bind(this), 30);
   }
 
 });
