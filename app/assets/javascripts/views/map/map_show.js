@@ -60,6 +60,11 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
     google.maps.event.addListener(this._map, 'click', this.displayLatLng.bind(this));
   },
 
+  unattachMapListeners: function () {
+    google.maps.event.clearListeners(this._map, 'idle');
+    google.maps.event.clearListeners(this._map, 'click');
+  },
+
   search: function (event) {
     LastAirBnb.setParams({
       lat: this._map.getCenter().lat(),
@@ -156,6 +161,7 @@ LastAirBnb.Views.MapShow = Backbone.View.extend({
   },
 
   remove: function () {
+    this.unattachMapListeners();
     LastAirBnb.Map = null;
     Backbone.View.prototype.remove.call(this);
   },
