@@ -28,8 +28,10 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   },
 
   login: function (event) {
-    event.preventDefault();
-    var userData = $(event.currentTarget).serializeJSON();
+    if (event) {
+      event.preventDefault();
+    }
+    var userData = $('.login-form').serializeJSON();
 
     $.ajax({
       url: '/sessions',
@@ -74,13 +76,15 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
     var email = 'korra@lastairbnb.com';
     var password = 'password';
 
+    this.$('.session-errors').height(0);
+
     if (this.currentIndex !== 0) {
       this.openAt(0)
     }
     setTimeout(function () {
       this.animateInput('.login-email', email, function() {
         this.animateInput('.login-password', password, function () {
-          $('.login-form').trigger('submit');
+          this.login();
         }.bind(this))
       }.bind(this))
     }.bind(this), 0);
