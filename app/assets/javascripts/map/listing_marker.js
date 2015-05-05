@@ -22,7 +22,7 @@ ListingMarker.prototype.draw = function() {
 		}
 
 		google.maps.event.addDomListener(this.el, "click", function(event) {
-			console.log('You clicked on ' + this.listing.escape('title') + '!');
+			// console.log('You clicked on ' + this.listing.escape('title') + '!');
 			google.maps.event.trigger(self, "click");
 		}.bind(this));
 

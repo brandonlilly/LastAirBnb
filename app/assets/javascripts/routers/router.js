@@ -10,7 +10,7 @@ LastAirBnb.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.listings = new LastAirBnb.Collections.Listings();
-    
+
     $('#login, #signup').on('click', function(e){
       e.preventDefault();
       var name = e.currentTarget.id + "-tab"

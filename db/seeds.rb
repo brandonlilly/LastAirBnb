@@ -182,23 +182,23 @@ lin_aparment.listing_amenities.create!(amenity: heating)
 lin_aparment.listing_amenities.create!(amenity: essentials)
 
 
-slum = gommu.listings.create!(
-  title: 'Underground Refuge',
-  price: 10,
-  address: 'Republic City Sewers',
-  description: "It's not a king's living quarters but plenty good for sleeping. Plus lots of friendly people around to keep you company. We all get along down here!",
-  capacity: 1,
-  beds: 0,
-  bedrooms: 0,
-  bathrooms: 0,
-  home_type_id: tent.id,
-  lat: 45.1510532655634,
-  lng: 5.071563720703125
-)
-cover = slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums1.jpg')
-slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums2.jpg')
-slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums3.jpg')
-slum.update!(cover_photo_id: cover.id)
+# slum = gommu.listings.create!(
+#   title: 'Underground Refuge',
+#   price: 10,
+#   address: 'Republic City Sewers',
+#   description: "It's not a king's living quarters but plenty good for sleeping. Plus lots of friendly people around to keep you company. We all get along down here!",
+#   capacity: 1,
+#   beds: 0,
+#   bedrooms: 0,
+#   bathrooms: 0,
+#   home_type_id: tent.id,
+#   lat: 45.1510532655634,
+#   lng: 5.071563720703125
+# )
+# cover = slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums1.jpg')
+# slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums2.jpg')
+# slum.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/slum/slums3.jpg')
+# slum.update!(cover_photo_id: cover.id)
 
 lovely_home = pema.listings.create!(
   title: 'Lovely Home',

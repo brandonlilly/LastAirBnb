@@ -23,7 +23,6 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   },
 
   setActive: function(options) {
-    console.log('setactive', options.name)
     this.$('.bbm-modal__tab a').removeClass('active');
     this.$('#'+options.name).addClass('active');
   },
@@ -37,7 +36,7 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
       type: 'POST',
       data: userData,
       success: function () {
-        window.location.replace('');
+        window.location.reload(true);
       },
       error: function (response) {
         this.$('.session-errors ul').html('<li>Invalid log in</li>');
@@ -55,7 +54,7 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
       type: 'POST',
       data: userData,
       success: function () {
-        window.location.replace('');
+        window.location.reload(true);
       },
       error: function (response) {
         if (response.responseJSON) {
@@ -76,7 +75,7 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
     $('#login-tab').click();
     this.animateInput($('.login-email'), email, function() {
       this.animateInput($('.login-password'), password, function () {
-        $('.login-form').submit();
+        $('.login-button').click();
       }.bind(this))
     }.bind(this))
   },
