@@ -77,16 +77,17 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
     if (this.currentIndex !== 0) {
       this.openAt(0)
     }
-    this.animateInput($('.login-email'), email, function() {
-      this.animateInput($('.login-password'), password, function () {
+    this.animateInput('.login-email', email, function() {
+      this.animateInput('.login-password', password, function () {
         $('.login-button').click();
       }.bind(this))
     }.bind(this))
   },
 
-  animateInput: function ($el, text, success) {
+  animateInput: function (selector, text, success) {
     var _index = 0;
     var textInterval = setInterval(function () {
+      var $el = $(selector);
       var currentVal = $el.val();
       $el.val(currentVal + text[_index]);
       _index++;
@@ -94,7 +95,7 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
         clearInterval(textInterval);
         success();
       }
-    }.bind(this), 30);
+    }.bind(this), 100);
   }
 
 });
