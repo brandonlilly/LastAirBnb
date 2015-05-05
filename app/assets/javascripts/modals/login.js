@@ -72,7 +72,10 @@ LastAirBnb.Modals.LoginModal = Backbone.Modal.extend({
   guestLogin: function() {
     var email = 'korra@lastairbnb.com';
     var password = 'password';
-    $('#login-tab').click();
+    console.log(this.currentIndex);
+    if (this.currentIndex !== 0) {
+      this.openAt(0)
+    }
     this.animateInput($('.login-email'), email, function() {
       this.animateInput($('.login-password'), password, function () {
         $('.login-button').click();

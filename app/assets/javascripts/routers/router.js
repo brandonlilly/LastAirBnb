@@ -14,9 +14,10 @@ LastAirBnb.Routers.Router = Backbone.Router.extend({
     $('#login, #signup').on('click', function(e){
       e.preventDefault();
       var name = e.currentTarget.id + "-tab"
-      var loginModal = new LastAirBnb.Modals.LoginModal({ name: name });
+      var index = name === "login-tab" ? 0 : 1
+      var loginModal = new LastAirBnb.Modals.LoginModal({ name: name});
       $('.login-modal').html(loginModal.render().el);
-      $('#' + name).click();
+      loginModal.openAt(index);
     }.bind(this));
 
   },
