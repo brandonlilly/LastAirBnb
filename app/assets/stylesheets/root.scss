@@ -168,6 +168,9 @@ nav.navbar.welcome-style {
   color: white !important;
   border-color: rgba(0, 0, 0, 0);
 
+  li > a:hover, li > a:focus {
+    background-color: transparent;
+  }
   a, li a {
     color: white;
   }
