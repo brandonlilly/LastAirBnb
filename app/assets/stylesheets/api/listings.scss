@@ -11,17 +11,94 @@
 
 /* Show */
 div.cover-img-wrap {
+  height: 500px;
+  position: relative;
 
   div.cover-img {
-    background-color: teal;
+    // background-color: teal;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     width: 100%;
     display: block;
     height: 500px;
+    position: absolute;
+    opacity: 0;
+
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+
+    &.active {
+      opacity: 1;
+    }
   }
 }
+
+div.cycle-left, div.cycle-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+
+  transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -webkit-transition: all .25s ease;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover {
+    opacity: 1;
+  }
+  span {
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 36px;
+    text-shadow: 1px 1px 2px #222;
+  }
+}
+
+$rightgrad: rgba(0,0,0,0.3);
+$leftgrad: transparent;
+
+div.cycle-left {
+  left: 0;
+  span {
+    left: 10px;
+  }
+  &:hover {
+    background: -webkit-gradient(linear, 0 0, 100% 100%, from($rightgrad), $leftgrad);
+    background: -webkit-linear-gradient(left, $rightgrad, $leftgrad );
+    background: -moz-linear-gradient(left, $rightgrad, $leftgrad  );
+    background: -o-linear-gradient(left, $rightgrad, $leftgrad  );
+    background: -ms-linear-gradient(left, $rightgrad, $leftgrad );
+    background: linear-gradient(to right, $rightgrad, $leftgrad );
+  }
+}
+div.cycle-right {
+  right: 0;
+  span {
+    right: 10px;
+  }
+  &:hover {
+    background: -webkit-gradient(linear, 0 0, 100% 100%, from($leftgrad), $rightgrad);
+    background: -webkit-linear-gradient(left, $leftgrad, $rightgrad );
+    background: -moz-linear-gradient(left, $leftgrad, $rightgrad  );
+    background: -o-linear-gradient(left, $leftgrad, $rightgrad  );
+    background: -ms-linear-gradient(left, $leftgrad, $rightgrad );
+    background: linear-gradient(to right, $leftgrad, $rightgrad );
+  }
+}
+
 div.photo-list-item-wrap {
   padding: 2px;
 
@@ -56,7 +133,7 @@ body h4 {
   }
 
   .listing-photos {
-    margin-top: 30px;
+    margin: 50px 0;
     padding: 0 15px;
   }
 

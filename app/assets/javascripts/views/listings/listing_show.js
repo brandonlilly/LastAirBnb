@@ -32,6 +32,8 @@ LastAirBnb.Views.ListingShow = Backbone.View.extend({
     this.photosPalette.delegateEvents();
     this.reviewsIndex.delegateEvents();
 
+    this.$('.cover-img-wrap').carousel();
+
     return this;
   },
 

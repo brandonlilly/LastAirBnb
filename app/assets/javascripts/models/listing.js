@@ -21,6 +21,14 @@ LastAirBnb.Models.Listing = Backbone.Model.extend({
     return this._photos;
   },
 
+  subPhotos: function () {
+    return new LastAirBnb.Collections.Photos(
+      this.photos().filter(function (photo) {
+        return photo.get('url') !== this.get('cover_photo_url')
+      }.bind(this))
+    );
+  },
+
   parse: function (response) {
     if (response.home_type) {
       this.set('home_type', response.home_type.name);

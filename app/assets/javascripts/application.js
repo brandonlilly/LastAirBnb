@@ -24,6 +24,7 @@
 //= require helpers
 //= require last_air_bnb
 //= require_tree ../templates
+//= require_tree ./plugins
 //= require_tree ./data
 //= require_tree ./models
 //= require_tree ./collections
