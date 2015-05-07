@@ -1,7 +1,7 @@
 <div class="cover-img-wrap">
-  <div class="cover-img active" style="background-image: url(<%= listing.escape('cover_photo_url') %>)"></div>
+  <div class="cover-img carousel-img active" style="background-image: url(<%= listing.escape('cover_photo_url') %>)"></div>
   <% listing.subPhotos().forEach(function (photo){ %>
-    <div class="cover-img" style="background-image: url(<%= photo.escape('url') %>)"></div>
+    <div class="cover-img carousel-img" style="background-image: url(<%= photo.escape('url') %>)"></div>
   <% }); %>
 </div>
 

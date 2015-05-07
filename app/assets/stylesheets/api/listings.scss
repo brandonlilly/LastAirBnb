@@ -268,13 +268,28 @@ body h4 {
   white-space: nowrap;
   margin-bottom: 10px;
 
+  a, a:hover, a:focus {
+    text-decoration: none;
+  }
   .img-viewport {
     width:100%;
     padding-bottom: 67%;
     position: relative;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+
+    .carousel-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      opacity: 0;
+      &.active {
+        opacity: 1;
+      }
+    }
   }
   .item-price {
     position: absolute;

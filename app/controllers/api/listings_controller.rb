@@ -7,7 +7,7 @@ class Api::ListingsController < ApplicationController
       @listings = Listing.all
     end
 
-    render json: @listings, include: [:cover_photo]
+    render json: @listings, include: [:cover_photo, :photos]
   end
 
   def show

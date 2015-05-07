@@ -10,6 +10,7 @@ LastAirBnb.Views.ListingListItem = Backbone.View.extend({
   render: function () {
     var content = this.template({ listing: this.model });
     this.$el.html(content);
+    this.$('.img-viewport').carousel();
     return this;
   },
 
