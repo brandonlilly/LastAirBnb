@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.reviews {
+
+  h4 {
+    margin: 40px 0;
+  }
+}
+
 .review-list {
   margin-top: 20px;
 }
@@ -41,6 +48,10 @@
       line-height: 50px;
       color: #82888a;
     }
+  }
+
+  &:last-child .review-body {
+    border-bottom: none;
   }
 
 }

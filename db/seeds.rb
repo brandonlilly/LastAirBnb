@@ -235,8 +235,8 @@ cozy_igloo = pema.listings.create!(
   lng: -4.7632598876953125
 )
 cover = cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/outside-night.jpg')
-cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/outside-front.jpg')
 cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/kitchen.jpg')
+cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/outside-front.jpg')
 cozy_igloo.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/cozy-igloo/outside-day.jpg')
 cozy_igloo.update!(cover_photo_id: cover.id)
 cozy_igloo.listing_amenities.create!(amenity: kitchen)
