@@ -1,8 +1,8 @@
 # LastAirBnb
 
-[Heroku link][heroku]
+[live link][site]
 
-[heroku]: http://lastairbnb.herokuapp.com
+[sute]: http://lastairbnb.com
 
 ## Minimum Viable Product
 LastAirBnb is an [Avatar][avatarwiki] themed AirBnb clone built with Rails and Backbone. Users
@@ -19,10 +19,8 @@ are able to:
 [avatarwiki]: http://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender
 
 ## Design Docs
-<!-- * [View Wireframes][views] -->
 * [DB schema][schema]
 
-<!-- [views]: ./docs/views.md -->
 [schema]: ./docs/schema.md
 
 ## Implementation Timeline
@@ -69,10 +67,3 @@ Allow users to create new listings and upload photos in new listing page.
 - [ ] User profiles/dashboard
 - [ ] Reviewing listing owners
 - [ ] Fixed position navbar for certain heights
-
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
