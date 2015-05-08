@@ -2,7 +2,7 @@
 
 [live link][site]
 
-[sute]: http://lastairbnb.com
+[site]: http://lastairbnb.com
 
 ## Minimum Viable Product
 LastAirBnb is an [Avatar][avatarwiki] themed AirBnb clone built with Rails and Backbone. Users
