@@ -35,12 +35,17 @@
     display: block;
     position: relative;
     top: 35%;
+    color: white;
+    text-align: center;
     h1 {
       text-transform: uppercase;
-      text-align: center;
       font-weight: bold;
-      color: white;
       font-size: 60px;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 18px;
+      margin: 0;
     }
   }
 
