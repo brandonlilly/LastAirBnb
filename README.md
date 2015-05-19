@@ -4,8 +4,6 @@ Extends the Google Maps v3 API to implement a custom map and overlay.
 Single-page client side rendering for a fast, seamless user experience.
 Responsive design for usability at any size.
 
-
-
 [site]: http://lastairbnb.com
 [avatarwiki]: http://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender
 
@@ -13,9 +11,11 @@ Responsive design for usability at any size.
 * [DB schema][schema]
 * 
 
+[schema]: ./docs/schema.md
+
+
 ## Code of Interest
 
 ### Google Maps API
 
 ![custommap](https://s3-us-west-1.amazonaws.com/lastairbnb/github/custommap)
-
