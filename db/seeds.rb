@@ -479,8 +479,8 @@ fish_merchant = poe.listings.create!(
   lat: -21.616579336740593,
   lng: 31.8603515625
 )
-cover = fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/front.jpg')
-fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger2.jpg')
+cover = fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger2.jpg')
+fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/front.jpg')
 fish_merchant.photos.create!(url: 'https://s3-us-west-1.amazonaws.com/lastairbnb/listings/fish-merchant/fishmonger1.jpg')
 fish_merchant.update!(cover_photo_id: cover.id)
 fish_merchant.listing_amenities.create!(amenity: heating)
