@@ -104,10 +104,11 @@
         height: 44px;
         width: 100px;
         background-color: #ff5a5f;
+        border-radius: 2px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        border-right-top-radius: 3px;
-        border-right-bottom-radius: 3px;
+        border-right-top-radius: 2px;
+        border-right-bottom-radius: 2px;
         border: none;
         font-weight: bold;
         font-size: 16px;
@@ -121,8 +122,8 @@
       }
       .search-input {
         width: 220px;
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
       }
     }
   }
