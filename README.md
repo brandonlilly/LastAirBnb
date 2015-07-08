@@ -1,20 +1,8 @@
-# LastAirBnb
+# [LastAirBnb][site]
 
-[live link][site]
+LastAirBnb is an [Avatar][avatarwiki] themed AirBnb clone built with Rails and Backbone.
 
 [site]: http://lastairbnb.com
-
-## Minimum Viable Product
-LastAirBnb is an [Avatar][avatarwiki] themed AirBnb clone built with Rails and Backbone. Users
-are able to:
-
-- [x] Create accounts
-- [x] Log in/out
-- [x] View listings
-- [ ] Review listings
-- [ ] Book listings
-- [ ] Search for listings
-- [ ] List places
 
 [avatarwiki]: http://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender
 
